@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+// backend/bin/www
+const { port } = require('../config');
+
+const app = require('../app');
+const db = require('../db/models');
+
+const dbConnect = async () => {
+    
+    try {
+        await db.sequelize.authenticate();
+        console.log('Database connection success! Sequelize is ready to use...')
+        app.listen(port, () => console.log(`Listening on port ${port}...`));
+
+    } catch(err) {
+        console.log("Database connection failure.");
+        console.error(err);
+    };
+
+}
+
+dbConnect()
+
+
+
+
+
+
