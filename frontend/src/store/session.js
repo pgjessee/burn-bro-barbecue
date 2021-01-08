@@ -12,12 +12,12 @@ const setSessionUser = (user) => {
     };
 };
 
-// const removeSessionUser = () => {
-//     return {
-//         type: REMOVE_SESSION_USER,
-//         user: null
-//     };
-// };
+const removeSessionUser = () => {
+    return {
+        type: REMOVE_SESSION_USER,
+        user: null
+    };
+};
 
 
 export const login = (user) => async (dispatch) => {
@@ -32,6 +32,37 @@ export const login = (user) => async (dispatch) => {
     dispatch(setSessionUser(res.data.user));
     return res;
 };
+
+export const restoreUser = () => async (dispatch) => {
+
+    const res = await fetch('/api/session');
+    dispatch(setSessionUser(res.data.user));
+    return res;
+};
+
+export const signup = (user) => async (dispatch) => {
+    const { first_name, email, zip, password } = user;
+    const res = await fetch('/api/users', {
+        method: "POST",
+        body: JSON.stringify({
+            first_name,
+            email,
+            zip,
+            password
+        })
+    })
+    dispatch(setSessionUser(res.data.user));
+    return res;
+};
+
+
+export const logout = () => async (dispatch) => {
+    const res = await(fetch('/api/session'), {
+        method: 'DELETE'
+    })
+    dispatch(removeSessionUser())
+    return res;
+}
 
 const initialState = { user: null };
 
