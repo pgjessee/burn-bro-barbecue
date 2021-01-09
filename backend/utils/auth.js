@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { jwtConfig } = require('../config');
-const { User } = require('../db/models');
+const { User, Employee } = require('../db/models');
+
 
 const { secret, expiresIn } = jwtConfig;
 
@@ -36,8 +37,20 @@ const restoreUser = (req, res, next) => {
       }
 
       try {
-        const { id } = jwtPayload.data;
-        req.user = await User.scope('currentUser').findByPk(id);
+        const { id, email } = jwtPayload.data;
+        console.log(jwtPayload.data)
+        console.log(id)
+
+        let employeeEmail = "@burnbro.com";
+        let emailIndex = email.indexOf('@');
+        let emailChecker = email.slice(emailIndex);
+
+        if (emailChecker === employeeEmail) {
+          req.user = await Employee.scope('currentEmployee').findByPk(id);
+        } else {
+          req.user = await User.scope('currentUser').findByPk(id);
+        }
+
       } catch (e) {
         res.clearCookie('token');
         return next();

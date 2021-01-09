@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { handleValidationErrors } = require('../../utils/validation')
-const { User } = require('../../db/models');
+const { User, Employee } = require('../../db/models');
 
 
 const router = express.Router();
@@ -29,10 +29,27 @@ router.get('/', restoreUser, (req, res) => {
     } else return res.json({});
 });
 
+// The user of an application can either be a customer (user) or an employee
+
 router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
     const { credential, password } = req.body;
 
-    const user = await User.login({credential, password});
+    let employeeEmail = "@burnbro.com"
+    let emailIndex = credential.indexOf('@');
+    let emailChecker = credential.slice(emailIndex);
+
+
+    let user;
+    // The user will now be assigned whether it is an employee or customer (user)
+
+    if (emailChecker === employeeEmail) {
+        user = await Employee.login({credential, password})
+        if (!user.is_active) user = null;
+    } else {
+        user = await User.login({credential, password});
+    };
+
+
 
     if (!user) {
         const err = new Error("Login failed");
@@ -40,7 +57,7 @@ router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
         err.title = "Login failed";
         err.errors = ['The provided credentials were invalid.'];
         return next(err);
-    }
+    };
 
     setTokenCookie(res, user);
 
@@ -55,9 +72,3 @@ router.delete('/', (_req, res) => {
 });
 
 module.exports = router;
-
-
-(async () => {
-    
-})
-

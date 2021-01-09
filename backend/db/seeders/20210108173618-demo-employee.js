@@ -9,6 +9,7 @@ module.exports = {
           hashed_password: bcrypt.hashSync('tM8oP4xG3bT4'),
           is_manager: true,
           is_procurer: true,
+          is_active: true
         },
         {
           first_name: 'Supreme Leader',
@@ -16,6 +17,15 @@ module.exports = {
           hashed_password: bcrypt.hashSync('123'),
           is_manager: true,
           is_procurer: true,
+          is_active: true
+        },
+        {
+          first_name: 'Turned',
+          email: "turn@burnbro.com",
+          hashed_password: bcrypt.hashSync('123'),
+          is_manager: true,
+          is_procurer: true,
+          is_active: false
         },
       ], {});
   },

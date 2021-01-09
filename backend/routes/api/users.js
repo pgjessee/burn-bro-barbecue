@@ -25,6 +25,13 @@ const validateSignup = [
         .exists({ checkFalsy: true})
         .isEmail()
         .withMessage('Please provide a valid email.'),
+    check('email')
+        .custom((value) => {
+            if (value.slice(value.indexOf('@')) === '@burnbro.com') {
+                throw new Error('Nice try! You cannot have a Burn Bro email!')
+            }
+            return true
+        }),
     check('zip')
         .exists({ checkFalsy: true})
         .withMessage('Please provide a zip code'),

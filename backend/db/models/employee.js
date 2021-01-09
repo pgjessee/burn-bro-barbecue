@@ -35,14 +35,14 @@ module.exports = (sequelize, DataTypes) => {
   {
     defaultScope: {
       attributes: {
-        exclude: ['hashed_password', 'email', 'zip', 'createdAt', 'updatedAt'],
+        exclude: ['hashed_password', 'email', 'createdAt', 'updatedAt'],
       },
     },
     scopes: {
-      currentUser: {
+      currentEmployee: {
         attributes: { exclude: ['hashed_password'] },
       },
-      loginUser: {
+      loginEmployee: {
         attributes: {},
       },
     },
