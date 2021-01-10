@@ -10,7 +10,8 @@ module.exports = {
       },
       entree_name: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       entree_price: {
         type: Sequelize.INTEGER,

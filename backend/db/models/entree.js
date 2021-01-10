@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const Entree = sequelize.define('Entree', {
     entree_name: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     entree_price: {
       type: DataTypes.INTEGER,
