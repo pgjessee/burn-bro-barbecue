@@ -10,7 +10,8 @@ module.exports = {
       },
       ingredient_name: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       food_in_stock: {
         type: Sequelize.INTEGER,
