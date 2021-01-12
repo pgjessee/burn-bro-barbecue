@@ -8,12 +8,16 @@ const { requireAuth } = require('../../utils/auth.js');
 
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
+const entreesRouter = require('./entrees');
 
 
 const router = express.Router();
 
 router.use("/session",sessionRouter);
 router.use("/users", usersRouter);
+router.use('/entrees', entreesRouter);
+
+
 
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });

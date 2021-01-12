@@ -4,6 +4,7 @@ const apiRouter = require('./api/index')
 
 const router = express.Router();
 
+router.use(express.json());
 router.use('/api', apiRouter)
 
 
