@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     Ingredient.belongsTo(models.Measurement, { foreignKey: "measurement_unit_id"})
     Ingredient.belongsToMany(Employee, { through: Food_Log })
     Ingredient.hasMany(models.Food_Log, { foreignKey: "ingredient_id"})
+    Ingredient.belongsToMany(Entree, { through: Entree_Ingredient})
+    Ingredient.hasMany(models.Entree_Ingredient, {foreignKey: "ingredient_id"})
   };
   return Ingredient;
 };

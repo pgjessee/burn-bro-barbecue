@@ -1,4 +1,7 @@
 'use strict';
+
+const ingredient = require("./ingredient");
+
 module.exports = (sequelize, DataTypes) => {
   const Entree = sequelize.define('Entree', {
     entree_name: {
@@ -14,6 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   Entree.associate = function(models) {
     Entree.belongsToMany(Order, { through: Order_Entree });
     Entree.hasMany(models.Order_Entree, { foreignKey: "entree_id" })
+    Entree.belongsToMany(Ingredient, { through: Entree_Ingredient})
+    Entree.hasMany(models.Entree_Ingredient, {foreignKey: "entree_id"})
   };
   return Entree;
 };
