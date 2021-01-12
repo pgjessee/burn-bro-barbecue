@@ -17,7 +17,7 @@ module.exports = {
         entree_price: 18,
       },
       {
-        entree_name: 'Pulled Pork',
+        entree_name: 'Pulled Pork Sandwich',
         entree_price: 11,
       },
       {
@@ -25,7 +25,7 @@ module.exports = {
         entree_price: 11,
       },
       {
-        entree_name: 'Bologna',
+        entree_name: 'Smoked Bologna',
         entree_price: 8,
       },
       {
