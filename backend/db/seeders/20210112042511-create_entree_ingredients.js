@@ -90,8 +90,8 @@ module.exports = {
       {
         entree_id: 9,
         ingredient_id: 9,
-        quantity: 2,
-        measurement_id: 1,
+        quantity: 1,
+        measurement_id: 2,
       },
     ], {});
   },

@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
+
+  const columnMapping = {
+    through: 'Entree_Ingredient',
+    otherKey: 'entree_id',
+    foreignKey: 'measurement_id'
+  };
+
   Measurement.associate = function(models) {
+    Measurement.belongsToMany(models.Entree, columnMapping)
     Measurement.hasMany(models.Ingredient, { foreignKey: "measurement_unit_id" })
     Measurement.hasMany(models.Food_Log, { foreignKey: "measurement_id"})
     Measurement.hasMany(models.Entree_Ingredient, { foreignKey: "measurement_id"})

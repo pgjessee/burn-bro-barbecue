@@ -1,5 +1,7 @@
 'use strict';
 const bcrypt = require('bcryptjs');
+const { Ingredient } = require('./ingredient');
+const { Food_Log } = require('./food_log')
 module.exports = (sequelize, DataTypes) => {
   const Employee = sequelize.define('Employee', {
     first_name: {
@@ -87,9 +89,14 @@ module.exports = (sequelize, DataTypes) => {
     return await Employee.scope('currentEmployee').findByPk(employee.id);
   };
 
+  const columnMapping = {
+    through: 'Food_Log',
+    otherKey: 'ingredient_id',
+    foreignKey: 'employee_id'
+  }
 
   Employee.associate = function(models) {
-    Employee.belongsToMany(Ingredient, { through: Food_Log });
+    Employee.belongsToMany(models.Ingredient, columnMapping);
     Employee.hasMany(models.Food_Log, { foreignKey: "employee_id"})
   };
   return Employee;

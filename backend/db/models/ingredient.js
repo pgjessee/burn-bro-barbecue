@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Ingredient = sequelize.define('Ingredient', {
     ingredient_name: {
@@ -19,11 +20,25 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
+
+  const columnMappingFoodLog = {
+    through: "Food_Log",
+    otherKey: "employee_id",
+    foreignKey: "ingredient_id"
+  };
+
+  const columnMappingEntreeIng = {
+    through: "Entree_Ingredient",
+    otherKey: "entree_id",
+    foreignKey: "ingredient_id"
+  };
+
+
   Ingredient.associate = function(models) {
     Ingredient.belongsTo(models.Measurement, { foreignKey: "measurement_unit_id"})
-    Ingredient.belongsToMany(Employee, { through: Food_Log })
+    Ingredient.belongsToMany(models.Employee, columnMappingFoodLog)
     Ingredient.hasMany(models.Food_Log, { foreignKey: "ingredient_id"})
-    Ingredient.belongsToMany(Entree, { through: Entree_Ingredient})
+    Ingredient.belongsToMany(models.Entree, columnMappingEntreeIng)
     Ingredient.hasMany(models.Entree_Ingredient, {foreignKey: "ingredient_id"})
   };
   return Ingredient;

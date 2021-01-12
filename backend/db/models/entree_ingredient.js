@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
+  
   Entree_Ingredient.associate = function(models) {
     Entree_Ingredient.belongsTo(models.Entree, { foreignKey: "entree_id"});
     Entree_Ingredient.belongsTo(models.Ingredient, { foreignKey: "ingredient_id"});

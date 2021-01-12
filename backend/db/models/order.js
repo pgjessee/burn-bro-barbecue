@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define('Order', {
     user_id: {
@@ -14,9 +15,16 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {});
+
+  const columnMapping = {
+    through: 'Order_Entree',
+    otherKey: 'entree_id',
+    foreignKey: 'order_id'
+  };
+
   Order.associate = function(models) {
     Order.belongsTo(models.User, { foreignKey: "user_id"})
-    Order.belongsToMany(Entree, { through: Order_Entree })
+    Order.belongsToMany(models.Entree, columnMapping)
     Order.hasMany(models.Order_Entree, { foreignKey: "order_id"})
   };
   return Order;

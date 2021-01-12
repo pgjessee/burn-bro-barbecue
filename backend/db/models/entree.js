@@ -14,11 +14,31 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
+
+  const columnMappingOrderEntree = {
+    through: 'Order_Entree',
+    otherKey: 'order_id',
+    foreignKey: 'entree_id'
+  }
+
+  const columnMappingEntreeIngredient = {
+    through: 'Entree_Ingredient',
+    otherKey: 'ingredient_id',
+    foreignKey: 'entree_id'
+  }
+
+  const columnMappingMeas = {
+    through: 'Entree_Ingredient',
+    otherKey: 'measurement_id',
+    foreignKey: 'entree_id'
+  };
+
   Entree.associate = function(models) {
-    Entree.belongsToMany(Order, { through: Order_Entree });
+    Entree.belongsToMany(models.Order, columnMappingOrderEntree);
     Entree.hasMany(models.Order_Entree, { foreignKey: "entree_id" })
-    Entree.belongsToMany(Ingredient, { through: Entree_Ingredient})
-    Entree.hasMany(models.Entree_Ingredient, {foreignKey: "entree_id"})
+    Entree.belongsToMany(models.Ingredient, columnMappingEntreeIngredient)
+    Entree.hasMany(models.Entree_Ingredient, {foreignKey: "entree_id"});
+    Entree.belongsToMany(models.Measurement, columnMappingMeas)
   };
   return Entree;
 };
