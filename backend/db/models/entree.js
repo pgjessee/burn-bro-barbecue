@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Entree.associate = function(models) {
-    // associations can be defined here
+    Entree.belongsToMany(Order, { through: Order_Entree });
+    Entree.hasMany(models.Order_Entree, { foreignKey: "entree_id" })
   };
   return Entree;
 };

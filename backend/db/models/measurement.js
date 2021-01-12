@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Measurement.associate = function(models) {
     Measurement.hasMany(models.Ingredient, { foreignKey: "measurement_unit_id" })
+    Measurement.hasMany(models.Food_Log, { foreignKey: "measurement_id"})
   };
   return Measurement;
 };
