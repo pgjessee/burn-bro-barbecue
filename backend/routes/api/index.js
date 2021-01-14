@@ -10,6 +10,7 @@ const sessionRouter = require('./session');
 const usersRouter = require('./users');
 const entreesRouter = require('./entrees');
 const employeesRouter = require('./employees');
+const ingredientsRouter = require('./ingredients')
 
 
 const router = express.Router();
@@ -18,6 +19,7 @@ router.use("/session",sessionRouter);
 router.use("/users", usersRouter);
 router.use('/entrees', entreesRouter);
 router.use('/employees', employeesRouter);
+router.use('/ingredients', ingredientsRouter)
 
 
 
