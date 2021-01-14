@@ -1,4 +1,27 @@
+.navigation-container {
+    height: 600px;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.splash-navigation-container {
+    height: 150px;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .navigation-button {
     background-color: firebrick;
     color: white;
+    border-radius: 60px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 0 0 10px 1px;
+    font-size: 20px;
 }

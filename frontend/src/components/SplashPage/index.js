@@ -6,7 +6,7 @@ import './SplashPage.css'
 function SplashPage() {
 
     return (
-        <div className="navigation-container">
+        <div className="splash-navigation-container">
             <div>
                 <NavLink to="/login"><button className="navigation-button">Log In</button></NavLink>
             </div>
