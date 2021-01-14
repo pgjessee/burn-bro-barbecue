@@ -11,8 +11,7 @@ router.get('/', asyncHandler(async(req, res) => {
     const ingredients = await Ingredient.findAll();
     const ingredientsJSon = res.json({ ingredients })
     return ingredientsJSon
-
-}))
+}));
 
 
 

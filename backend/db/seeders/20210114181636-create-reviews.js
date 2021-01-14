@@ -8,6 +8,10 @@ module.exports = {
         user_id: 1
       },
       {
+        review: "Why art thou speaking Latin?",
+        user_id: 1
+      },
+      {
         review: "This app sucks lol",
         user_id: 2
       },

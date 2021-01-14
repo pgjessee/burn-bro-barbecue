@@ -11,7 +11,6 @@ const ListEntrees = () => {
         (async () => {
             const res = await fetch('/api/entrees/');
             const { entrees } = await res.json();
-            console.log(entrees)
             setAllEntrees(entrees)
         })()
     }, [])
@@ -19,7 +18,7 @@ const ListEntrees = () => {
     return (
         <>
         <div className='new-order-header'><h1>Place a New Order</h1></div>
-        <div className='entrees_container'>
+        <div className='entrees-container'>
             {allEntrees.map(entree => {
                 return <EntreeBox key={entree.id} entree={entree}/>
             })}
