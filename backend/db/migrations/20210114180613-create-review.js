@@ -8,14 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      review: {
+        type: Sequelize.STRING(500),
+        allowNull: false
+      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model: "Users"}
-      },
-      review: {
-        type: Sequelize.STRING(500),
-        allowNull: false
       },
       createdAt: {
         allowNull: false,
