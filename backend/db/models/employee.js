@@ -97,7 +97,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Employee.associate = function(models) {
     Employee.belongsToMany(models.Ingredient, columnMapping);
-    Employee.hasMany(models.Food_Log, { foreignKey: "employee_id"})
+    Employee.hasMany(models.Food_Log, { foreignKey: "employee_id"});
   };
   return Employee;
 };

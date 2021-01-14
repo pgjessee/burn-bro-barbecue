@@ -17,6 +17,24 @@ module.exports = {
           zip: "74012",
           hashed_password: bcrypt.hashSync('123')
         },
+        {
+          first_name: 'Nerf',
+          email: "nerf@aa.io",
+          zip: "74012",
+          hashed_password: bcrypt.hashSync('123')
+        },
+        {
+          first_name: 'Dirk',
+          email: "dirk@aa.io",
+          zip: "74012",
+          hashed_password: bcrypt.hashSync('123')
+        },
+        {
+          first_name: 'Scruffy',
+          email: "scruffy@aa.io",
+          zip: "74012",
+          hashed_password: bcrypt.hashSync('123')
+        },
     ], {});
   },
 
