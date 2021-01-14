@@ -30,57 +30,71 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        First Name
-        <input
-          type="text"
-          value={first_name}
-          onChange={(e) => setFirstname(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Zip
-        <input
-          type="text"
-          value={zip}
-          onChange={(e) => setZip(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className="page-container">
+      <div className="form-container">
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => <li className="errs" key={idx}>{error}</li>)}
+          </ul>
+          <div>
+            <label>
+              First Name
+              <input
+                type="text"
+                value={first_name}
+                onChange={(e) => setFirstname(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Email
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Zip
+              <input
+                type="text"
+                value={zip}
+                onChange={(e) => setZip(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Confirm Password
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
   );
 }
 

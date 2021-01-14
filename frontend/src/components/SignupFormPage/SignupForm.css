@@ -1,0 +1,27 @@
+.form-container {
+    display: flex;
+    align-items: center;
+}
+
+.signup-form {
+    font-family: "Roboto", sans-serif;
+    font-family: 24px;
+    color: white;
+    background-color: firebrick;
+
+    margin: 100px auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px 1px;
+    width: 500px;
+}
+
+
+.errs {
+    color: white;
+}
+
+

@@ -1,7 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import UserPage from '../UserPage'
 import ProfileButton from './ProfileButton';
+import SplashPage from '../SplashPage'
 import './Navigation.css';
 
 
@@ -13,24 +15,19 @@ function Navigation({ isLoaded }){
     let sessionLinks;
     if (sessionUser) {
       sessionLinks = (
-        <ProfileButton user={sessionUser} />
+        <UserPage user={sessionUser}/>
       );
     } else {
       sessionLinks = (
-        <>
-          <button><NavLink to="/login">Log In</NavLink></button>
-          <button><NavLink to="/signup">Sign Up</NavLink></button>
-        </>
+        <SplashPage />
       );
     }
 
     return (
-      <ul>
-        <li>
-          {/* <NavLink exact to="/">Home</NavLink> */}
-          {isLoaded && sessionLinks}
-        </li>
-      </ul>
+      <>
+        <Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link>
+        {isLoaded && sessionLinks}
+      </>
     );
 }
 

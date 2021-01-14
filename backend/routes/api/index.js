@@ -9,6 +9,7 @@ const { requireAuth } = require('../../utils/auth.js');
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
 const entreesRouter = require('./entrees');
+const employeesRouter = require('./employees');
 
 
 const router = express.Router();
@@ -16,6 +17,7 @@ const router = express.Router();
 router.use("/session",sessionRouter);
 router.use("/users", usersRouter);
 router.use('/entrees', entreesRouter);
+router.use('/employees', employeesRouter);
 
 
 
