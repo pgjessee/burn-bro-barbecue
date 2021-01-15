@@ -7,8 +7,20 @@ const EntreeBox = ({ entree }) => {
 
     const addToCartHandler = () => {
         // const cart = localStorage.getItem()
-        localStorage.setItem(entree.entree_name, amount)
+        if (localStorage.getItem(entree.id)) {
+            let item = localStorage.getItem(entree.id)
+            localStorage.setItem(entree.id, parseInt(amount, 10) + parseInt(item, 10))
+
+        } else {
+            localStorage.setItem(entree.id, parseInt(amount, 10))
+        }
+        setAmount(0)
     }
+
+    const removeFromCartHandler = () => {
+        localStorage.removeItem(entree.id);
+        setAmount(0);
+    };
 
     return (
         <>
@@ -24,7 +36,7 @@ const EntreeBox = ({ entree }) => {
         </div>
         <div>
             <button onClick={addToCartHandler}>Add to Cart</button>
-            <button>Remove from Cart</button>
+            <button onClick={removeFromCartHandler}>Remove from Cart</button>
         </div>
         </>
     )
