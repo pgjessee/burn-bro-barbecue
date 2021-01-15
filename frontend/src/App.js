@@ -5,6 +5,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import ReviewsPage from './components/ReviewsPage'
 import OrderFormPage from './components/OrderFormPage'
+import CheckoutItems from './components/CheckoutPage'
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 
@@ -29,11 +30,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/new-order">
+          <Route exact path="/new-order">
             <OrderFormPage />
           </Route>
           <Route path="/reviews">
             <ReviewsPage />
+          </Route>
+          <Route path="/new-order/checkout">
+            <CheckoutItems />
           </Route>
         </Switch>
       )}

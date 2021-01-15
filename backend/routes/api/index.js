@@ -12,6 +12,7 @@ const entreesRouter = require('./entrees');
 const employeesRouter = require('./employees');
 const ingredientsRouter = require('./ingredients');
 const reviewsRouter = require('./reviews');
+const ordersRouter = require('./orders');
 
 
 const router = express.Router();
@@ -20,9 +21,9 @@ router.use("/session",sessionRouter);
 router.use("/users", usersRouter);
 router.use('/entrees', entreesRouter);
 router.use('/employees', employeesRouter);
-router.use('/ingredients', ingredientsRouter)
+router.use('/ingredients', ingredientsRouter);
 router.use('/reviews', reviewsRouter);
-
+router.use('/orders', ordersRouter);
 
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });
