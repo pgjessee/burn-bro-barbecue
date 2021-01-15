@@ -24,10 +24,11 @@ function Navigation({ isLoaded }){
     }
 
     return (
-      <>
+      <div className="logo-div">
         <Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link>
         {isLoaded && sessionLinks}
-      </>
+      </div>
+
     );
 }
 

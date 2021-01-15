@@ -17,6 +17,9 @@ const ListReviews = () => {
 
     return (
         <>
+        <div className="write-review-button">
+        <NavLink to="/write-review"><button className="navigation-button">Write a Review</button></NavLink>
+        </div>
         <div className="reviews-header"><h1>Our Reviews</h1></div>
         <div className="reviews">
             {allReviews.map(review => {

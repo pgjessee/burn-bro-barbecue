@@ -5,6 +5,8 @@ body {
 }
 
 .homepage-logo {
+    background-color: yellowgreen;
     margin-left: auto;
     height: 300px;
+    width: 400px;
 }

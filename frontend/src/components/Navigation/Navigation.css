@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: violet;
 }
 
 .navigation-button {
@@ -24,4 +25,8 @@
     width: 300px;
     box-shadow: 0 0 10px 1px;
     font-size: 20px;
+}
+
+.logo-div {
+    background-color: yellowgreen;
 }
