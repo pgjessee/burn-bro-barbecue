@@ -13,5 +13,12 @@ router.get('/', asyncHandler(async (req, res) => {
     return entreesJson
 }))
 
+router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    const entreeId = parseInt(req.params.id, 10);
+    const entree = await Entree.findByPk(entreeId);
+
+    return res.json({ entree })
+}))
+
 
 module.exports = router;

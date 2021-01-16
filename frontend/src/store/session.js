@@ -61,6 +61,7 @@ export const logout = () => async (dispatch) => {
         method: 'DELETE'
     })
     dispatch(removeSessionUser())
+    localStorage.clear();
     return res;
 }
 
