@@ -1,20 +1,21 @@
-.navigation-container {
+.user-navigation-container {
     height: 600px;
     width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .splash-navigation-container {
-    height: 150px;
+    height: 250px;
     width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: violet;
+    align-items: center;
 }
 
 .navigation-button {
@@ -24,9 +25,22 @@
     height: 50px;
     width: 300px;
     box-shadow: 0 0 10px 1px;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .logo-div {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    /* background-color: yellowgreen; */
+}
+
+.homepage-logo {
+    /* background-color: yellowgreen; */
+    /* margin-left: auto; */
+    display: flex;
+    height: 250px;
+    width: 350px;
+    /* justify-content: center; */
 }

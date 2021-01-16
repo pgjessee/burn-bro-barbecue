@@ -1,6 +1,11 @@
+.page-container {
+    background-color: yellowgreen;
+    display: flex;
+}
+
 .form-container {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .signup-form {

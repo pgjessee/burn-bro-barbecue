@@ -8,6 +8,9 @@ function SplashPage() {
     return (
         <div className="splash-navigation-container">
             <div>
+                <NavLink to="/menu"><button className="navigation-button">View Our Menu</button></NavLink>
+            </div>
+            <div>
                 <NavLink to="/login"><button className="navigation-button">Log In</button></NavLink>
             </div>
             <div>

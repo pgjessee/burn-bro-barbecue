@@ -12,7 +12,7 @@ function UserPage({ user }) {
     };
 
     return (
-        <div className="navigation-container">
+        <div className="user-navigation-container">
             <div>
                 <NavLink to="/new-order"><button className="navigation-button">Place an Order</button></NavLink>
             </div>

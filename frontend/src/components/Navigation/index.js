@@ -24,8 +24,10 @@ function Navigation({ isLoaded }){
     }
 
     return (
-      <div className="logo-div">
-        <Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link>
+      <div className="splash-page">
+        <div className="logo-div">
+          <Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link>
+        </div>
         {isLoaded && sessionLinks}
       </div>
 

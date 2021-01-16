@@ -8,7 +8,9 @@ const router = express.Router();
 
 
 router.get('/', asyncHandler(async (req, res) => {
-    const entrees = await Entree.findAll();
+    const entrees = await Entree.findAll({
+        include: Entree_Ingredient
+    });
     const entreesJson = res.json({entrees});
     return entreesJson
 }))
