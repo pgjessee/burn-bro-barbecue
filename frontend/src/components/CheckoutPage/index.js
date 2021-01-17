@@ -58,9 +58,9 @@ const CheckoutItems = ({ user }) => {
             lineItemQuantity = localStorage.getItem(entreeKey);
             let res = await fetch(`/api/entrees/${entreeKey}`);
             let { entree } = res.data;
-
+            console.log(entree)
             foodDecrementer = entree.Entree_Ingredients;
-            console.log(foodDecrementer);
+            console.log(foodDecrementer)
 
             await fetch('/api/orders/order-entrees', {
                 method: "POST",
@@ -70,6 +70,22 @@ const CheckoutItems = ({ user }) => {
                     quantity: parseInt(lineItemQuantity,10)
                 })
             })
+
+            let entreeIngredient;
+            for (let i = 0; i < foodDecrementer.length; i++) {
+                entreeIngredient = foodDecrementer[i];
+
+                await fetch('/api/ingredients/food-log', {
+                    method: "POST",
+                    body: JSON.stringify({
+                        ingredient_id: entreeIngredient.ingredient_id,
+                        employee_id: 1,
+                        food_log_quantity: -(entreeIngredient.quantity * lineItemQuantity),
+                        measurement_id: entreeIngredient.measurement_id
+                    })
+                })
+            }
+
         }
 
         localStorage.clear();
