@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
         references: { model: "Employees"}
       },
-      food_log_quantity: {
+      food_log_delta: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
@@ -26,6 +26,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Measurements"}
+      },
+      beginning_balance: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      ending_balance: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

@@ -9,11 +9,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    food_log_quantity: {
+    food_log_delta: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
     measurement_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    beginning_balance: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    ending_balance: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

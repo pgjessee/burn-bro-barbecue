@@ -29,13 +29,22 @@ router.put('/:id(\\d+)', asyncHandler(async(req, res, next) => {
 
 
 router.post('/food-log', asyncHandler(async(req, res, next) => {
-    const { ingredient_id, employee_id, food_log_quantity, measurement_id} = req.body;
+    const {
+        ingredient_id,
+        employee_id,
+        food_log_delta,
+        measurement_id,
+        beginning_balance,
+        ending_balance
+    } = req.body;
 
     const foodLog = await Food_Log.create({
         ingredient_id,
         employee_id,
-        food_log_quantity,
-        measurement_id
+        food_log_delta,
+        measurement_id,
+        beginning_balance,
+        ending_balance
     })
 
     return res.json({ foodLog });
