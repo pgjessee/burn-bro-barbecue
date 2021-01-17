@@ -17,7 +17,9 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const entreeId = parseInt(req.params.id, 10);
-    const entree = await Entree.findByPk(entreeId);
+    const entree = await Entree.findByPk(entreeId, {
+        include: Entree_Ingredient
+    });
 
     return res.json({ entree })
 }))

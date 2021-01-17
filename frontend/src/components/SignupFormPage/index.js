@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 import './SignupForm.css'
@@ -31,67 +31,79 @@ function SignupFormPage() {
 
   return (
     <div className="page-container">
+      <div className="logo-div"><Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link></div>
       <div className="form-container">
         <form className="signup-form" onSubmit={handleSubmit}>
+          <div>Sign Up for Rewards!</div>
           <ul>
             {errors.map((error, idx) => <li className="errs" key={idx}>{error}</li>)}
           </ul>
-          <div>
+          <div className="input-container">
+            <div>
             <label>
-              First Name
-              <input
-                type="text"
-                value={first_name}
-                onChange={(e) => setFirstname(e.target.value)}
-                required
-              />
+              First Name:
             </label>
+            </div>
+            <div>
+            <input
+              type="text"
+              value={first_name}
+              onChange={(e) => setFirstname(e.target.value)}
+              required
+            />
+            </div>
           </div>
-          <div>
+          <div className="input-container">
+            <div>
             <label>
-              Email
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+              Email:
             </label>
+            </div>
+            <div>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            </div>
           </div>
-          <div>
+          <div className="input-container">
             <label>
-              Zip
-              <input
-                type="text"
-                value={zip}
-                onChange={(e) => setZip(e.target.value)}
-                required
-              />
+              Zip:
             </label>
+            <input
+              type="text"
+              value={zip}
+              onChange={(e) => setZip(e.target.value)}
+              required
+            />
           </div>
-          <div>
+          <div className="input-container">
             <label>
-              Password
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              Password:
             </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
-          <div>
+          <div className="input-container">
             <label>
-              Confirm Password
-              <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
+              Confirm Password:
             </label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
           </div>
-          <button type="submit">Sign Up</button>
+          <div className="submit-button">
+            <button type="submit">Sign Up</button>
+          </div>
         </form>
       </div>
     </div>

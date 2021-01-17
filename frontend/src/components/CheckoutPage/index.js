@@ -19,7 +19,6 @@ const CheckoutItems = ({ user }) => {
                 let entreeKey = localStorage.key(i);
                 let res = await fetch(`/api/entrees/${entreeKey}`);
                 let { entree } = res.data;
-                console.log(entree);
                 orderLineItems.push(entree)
             }
             setLineItems(orderLineItems)
@@ -53,11 +52,15 @@ const CheckoutItems = ({ user }) => {
         let res = await fetch(`/api/orders/user-new-order/${user.id}`)
         let { order } = res.data;
 
+        let foodDecrementer;
         for (let i = 0; i < localStorage.length; i++) {
             let entreeKey = localStorage.key(i);
             lineItemQuantity = localStorage.getItem(entreeKey);
             let res = await fetch(`/api/entrees/${entreeKey}`);
             let { entree } = res.data;
+
+            foodDecrementer = entree.Entree_Ingredients;
+            console.log(foodDecrementer);
 
             await fetch('/api/orders/order-entrees', {
                 method: "POST",
@@ -70,7 +73,7 @@ const CheckoutItems = ({ user }) => {
         }
 
         localStorage.clear();
-        <Redirect exact to="/" />
+         return <Redirect exact to="/" />
     };
 
     return (
