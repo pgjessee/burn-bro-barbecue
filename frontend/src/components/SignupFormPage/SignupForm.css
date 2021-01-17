@@ -1,32 +1,65 @@
 .page-container {
     background-color: yellowgreen;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-container {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+}
+
+.form-container {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.logo-div {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(205, 50, 187); */
+}
+
+.homepage-logo {
+    /* background-color: yellowgreen; */
+    display: flex;
+    height: 250px;
+    width: 350px;
+
 }
 
 .signup-form {
     font-family: "Roboto", sans-serif;
-    font-family: 24px;
+    font-size: 24px;
     color: white;
     background-color: firebrick;
 
-    margin: 100px auto;
-    padding: 50px;
+    /* margin: 100px auto; */
+    padding: 40px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
     border-radius: 10px;
 
     box-shadow: 0 0 10px 1px;
     width: 500px;
 }
 
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* justify-content: space-evenly; */
+}
 
 .errs {
     color: white;
 }
 
-
+input {
+    height: 24px;
+    /* padding-left: 35px; */
+}

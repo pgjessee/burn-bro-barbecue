@@ -19,7 +19,6 @@ const CheckoutItems = ({ user }) => {
                 let entreeKey = localStorage.key(i);
                 let res = await fetch(`/api/entrees/${entreeKey}`);
                 let { entree } = res.data;
-                console.log(entree);
                 orderLineItems.push(entree)
             }
             setLineItems(orderLineItems)
@@ -53,11 +52,15 @@ const CheckoutItems = ({ user }) => {
         let res = await fetch(`/api/orders/user-new-order/${user.id}`)
         let { order } = res.data;
 
+        let foodDecrementer;
         for (let i = 0; i < localStorage.length; i++) {
             let entreeKey = localStorage.key(i);
             lineItemQuantity = localStorage.getItem(entreeKey);
             let res = await fetch(`/api/entrees/${entreeKey}`);
             let { entree } = res.data;
+            console.log(entree)
+            foodDecrementer = entree.Entree_Ingredients;
+            console.log(foodDecrementer)
 
             await fetch('/api/orders/order-entrees', {
                 method: "POST",
@@ -67,10 +70,45 @@ const CheckoutItems = ({ user }) => {
                     quantity: parseInt(lineItemQuantity,10)
                 })
             })
+
+            let entreeIngredient, ingredientId, foodDelta, endBalance;
+            for (let i = 0; i < foodDecrementer.length; i++) {
+
+                entreeIngredient = foodDecrementer[i];
+                ingredientId = entreeIngredient.ingredient_id;
+                console.log(ingredientId)
+                // let res = await fetch(`/api/ingredients/${ingredientId}`)
+                let res = await fetch(`/api/ingredients/${ingredientId}`);
+                console.log(res)
+                let { ingredient } = res.data;
+                console.log(ingredient)
+
+                foodDelta = -(entreeIngredient.quantity * lineItemQuantity)
+
+                await fetch('/api/ingredients/food-log', {
+                    method: "POST",
+                    body: JSON.stringify({
+                        ingredient_id: entreeIngredient.ingredient_id,
+                        employee_id: 1,
+                        food_log_delta: foodDelta,
+                        measurement_id: entreeIngredient.measurement_id,
+                        beginning_balance: ingredient.food_in_stock,
+                        ending_balance: (ingredient.food_in_stock + foodDelta)
+                    })
+                })
+
+                await fetch(`/api/ingredients/${ingredientId}`, {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        food_delta: (ingredient.food_in_stock + foodDelta)
+                    })
+                })
+            }
+
         }
 
         localStorage.clear();
-        <Redirect exact to="/" />
+         return <Redirect exact to="/" />
     };
 
     return (
