@@ -71,17 +71,36 @@ const CheckoutItems = ({ user }) => {
                 })
             })
 
-            let entreeIngredient;
+            let entreeIngredient, ingredientId, foodDelta, endBalance;
             for (let i = 0; i < foodDecrementer.length; i++) {
+
                 entreeIngredient = foodDecrementer[i];
+                ingredientId = entreeIngredient.ingredient_id;
+                console.log(ingredientId)
+                // let res = await fetch(`/api/ingredients/${ingredientId}`)
+                let res = await fetch(`/api/ingredients/${ingredientId}`);
+                console.log(res)
+                let { ingredient } = res.data;
+                console.log(ingredient)
+
+                foodDelta = -(entreeIngredient.quantity * lineItemQuantity)
 
                 await fetch('/api/ingredients/food-log', {
                     method: "POST",
                     body: JSON.stringify({
                         ingredient_id: entreeIngredient.ingredient_id,
                         employee_id: 1,
-                        food_log_quantity: -(entreeIngredient.quantity * lineItemQuantity),
-                        measurement_id: entreeIngredient.measurement_id
+                        food_log_delta: foodDelta,
+                        measurement_id: entreeIngredient.measurement_id,
+                        beginning_balance: ingredient.food_in_stock,
+                        ending_balance: (ingredient.food_in_stock + foodDelta)
+                    })
+                })
+
+                await fetch(`/api/ingredients/${ingredientId}`, {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        food_delta: (ingredient.food_in_stock + foodDelta)
                     })
                 })
             }
