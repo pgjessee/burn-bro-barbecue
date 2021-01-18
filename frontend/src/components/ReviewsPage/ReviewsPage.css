@@ -2,11 +2,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: green;
+
 }
 
 .write-review-button {
     padding-bottom: 50px;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.reviews__user-box {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    background-color: firebrick;
+    color: white;
+    border-radius: 80px;
+    padding-top: 30px;
+}
+
+.reviews__user-box > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .reviews-header{

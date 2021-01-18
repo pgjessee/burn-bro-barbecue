@@ -16,20 +16,20 @@ const ListEntrees = () => {
     }, [])
 
     return (
-        <>
-        <div className='new-order-header'><h1>Place a New Order</h1></div>
-        <div className='entrees-container'>
-            {allEntrees.map(entree => {
-                return <EntreeBox key={entree.id} entree={entree}/>
-            })}
+        <div className="new-order-page-container">
+            <div className='new-order-header'><h1>Place a New Order</h1></div>
+            <div className='entrees-container'>
+                {allEntrees.map(entree => {
+                    return <EntreeBox key={entree.id} entree={entree}/>
+                })}
+            </div>
+            <div className="new-order__checkout">
+                <NavLink to="/new-order/checkout"><button className="navigation-button">Proceed to Checkout</button></NavLink>
+            </div>
+            <div className="return-home-button">
+                <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
+            </div>
         </div>
-        <div className="new-order__checkout">
-            <NavLink to="/new-order/checkout"><button className="navigation-button">Proceed to Checkout</button></NavLink>
-        </div>
-        <div className="return-home-button">
-            <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
-        </div>
-        </>
     )
 }
 

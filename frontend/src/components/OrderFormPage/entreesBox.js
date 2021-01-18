@@ -23,22 +23,26 @@ const EntreeBox = ({ entree }) => {
     };
 
     return (
-        <>
-        <div className='entrees__entree-box'>
-            <h2>{entree.entree_name}</h2>
-            <h2><strong>${entree.entree_price}</strong></h2>
-            <input
-            min={0}
-            value={amount}
-            onChange={(e) => setAmount(e.target.value < 0 ? 0 : e.target.value)}
-            type="number"/>
-            <h2>$<span className="entree-order-total">{amount * entree.entree_price}</span></h2>
+
+        <div className='entree-line'>
+            <div className='entrees__entree-box'>
+                <h2>{entree.entree_name}</h2>
+                <h2><strong>Price ${entree.entree_price}</strong></h2>
+                <h2><strong>X</strong></h2>
+                <input
+                min={0}
+                value={amount}
+                onChange={(e) => setAmount(e.target.value < 0 ? 0 : e.target.value)}
+                type="number"/>
+                <h2><strong>=</strong></h2>
+                <h2>$<span className="entree-order-total">{amount * entree.entree_price}</span></h2>
+            </div>
+            <div className="new-order-button-container">
+                <button className="add-to-cart" onClick={addToCartHandler}>Add to Cart</button>
+                <button className="remove-from-cart" onClick={removeFromCartHandler}>Remove from Cart</button>
+            </div>
         </div>
-        <div>
-            <button onClick={addToCartHandler}>Add to Cart</button>
-            <button onClick={removeFromCartHandler}>Remove from Cart</button>
-        </div>
-        </>
+
     )
 };
 

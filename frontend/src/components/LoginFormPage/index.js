@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, NavLink } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
 import './LoginForm.css';
@@ -61,7 +61,11 @@ function LoginFormPage() {
             <button type="submit">Log In</button>
           </form>
         </div>
+        <div className="return-home-button">
+            <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
+        </div>
       </div>
+
       );
 };
 
