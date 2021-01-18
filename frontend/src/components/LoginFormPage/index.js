@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
 import './LoginForm.css';
@@ -28,6 +28,9 @@ function LoginFormPage() {
 
     return (
       <div className="page-container">
+        <div className="logo-div">
+          <Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link>
+        </div>
         <div className="form-container">
           <form className="login-form" onSubmit={handleSubmit}>
             <ul>

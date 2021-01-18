@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import './SplashPage.css'
 
@@ -7,6 +7,7 @@ function SplashPage() {
 
     return (
         <div className="splash-navigation-container">
+
             <div>
                 <NavLink to="/menu"><button className="navigation-button">View Our Menu</button></NavLink>
             </div>

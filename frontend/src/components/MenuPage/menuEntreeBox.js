@@ -5,7 +5,7 @@ const MenuEntreeBox = ({ entree }) => {
 
 
     return (
-        <div className='meu__entree-box'>
+        <div className='menu__entree-box'>
             <h2>{entree.entree_name}</h2>
             <h2><strong>${entree.entree_price}</strong></h2>
         </div>
