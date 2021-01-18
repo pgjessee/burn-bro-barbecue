@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import ReviewBox from './reviewsBox';
 
+import './ReviewsPage.css'
 
 const ListReviews = () => {
     const [allReviews, setAllReviews] = useState([])
@@ -16,21 +17,24 @@ const ListReviews = () => {
     }, [])
 
     return (
-        <>
-        <div></div>
-        <div className="write-review-button">
-        <NavLink to="/write-review"><button className="navigation-button">Write a Review</button></NavLink>
+
+        <div className="reviews__div-box">
+            <div className="write-review-button">
+                <NavLink to="/write-review"><button className="navigation-button">Write a Review</button></NavLink>
+            </div>
+            <div className="reviews-header"><h1>- - Our Reviews - -</h1></div>
+            <div className="reviews">
+                {allReviews.map(review => {
+                    return <ReviewBox key={review.id} review={review}/>
+                })}
+            </div>
+            <div className="home-button">
+                <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
+            </div>
+            <div className="write-review-button">
+                <NavLink to="/write-review"><button className="navigation-button">Write a Review</button></NavLink>
+            </div>
         </div>
-        <div className="reviews-header"><h1>Our Reviews</h1></div>
-        <div className="reviews">
-            {allReviews.map(review => {
-                return <ReviewBox key={review.id} review={review}/>
-            })}
-        </div>
-        <div className="home-button">
-        <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
-        </div>
-        </>
     )
 
 }

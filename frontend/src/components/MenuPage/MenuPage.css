@@ -2,11 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: greenyellow; */
 }
 
 .menu-header {
     color: firebrick;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    border-style: dashed;
 }
 
 .menu-entrees-container {
@@ -15,7 +19,7 @@
     flex-wrap: wrap;
     width: 1000px;
     height: 550px;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 .menu__entree-box {

@@ -3,12 +3,15 @@ import React from 'react';
 const ReviewBox = ({ review }) => {
 
     return (
-        <>
-            <div className="reviews__review-box">
-                <h2>{review.User.first_name}</h2>
-                <h2>{review.review}</h2>
+        <div className="reviews__user-box">
+            <div className="user__review-box">
+                <h3>{review.review}</h3>
+                <h2>- {review.User.first_name}</h2>
             </div>
-        </>
+            <div className="review__delete-button">
+                <button>Delete Review</button>
+            </div>
+        </div>
     )
 }
 
