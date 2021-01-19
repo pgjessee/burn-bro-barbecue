@@ -10,7 +10,7 @@ import OrderLineItem from './OrderLineItem'
 
 const CheckoutItems = ({ user }) => {
     const [lineItems, setLineItems] = useState([]);
-    console.log(user)
+
     useEffect(() => {
         (async () => {
             let orderLineItems = [];
@@ -39,7 +39,7 @@ const CheckoutItems = ({ user }) => {
             orderTotal += (parseInt(lineItemQuantity, 10) * entree.entree_price);
         };
 
-        console.log(orderTotal)
+
 
         await fetch('/api/orders', {
             method: "POST",
@@ -58,9 +58,9 @@ const CheckoutItems = ({ user }) => {
             lineItemQuantity = localStorage.getItem(entreeKey);
             let res = await fetch(`/api/entrees/${entreeKey}`);
             let { entree } = res.data;
-            console.log(entree)
+
             foodDecrementer = entree.Entree_Ingredients;
-            console.log(foodDecrementer)
+
 
             await fetch('/api/orders/order-entrees', {
                 method: "POST",
@@ -76,12 +76,12 @@ const CheckoutItems = ({ user }) => {
 
                 entreeIngredient = foodDecrementer[i];
                 ingredientId = entreeIngredient.ingredient_id;
-                console.log(ingredientId)
+
                 // let res = await fetch(`/api/ingredients/${ingredientId}`)
                 let res = await fetch(`/api/ingredients/${ingredientId}`);
-                console.log(res)
+
                 let { ingredient } = res.data;
-                console.log(ingredient)
+
 
                 foodDelta = -(entreeIngredient.quantity * lineItemQuantity)
 

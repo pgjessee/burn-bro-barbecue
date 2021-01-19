@@ -9,7 +9,6 @@ function WriteReview({ user }) {
 
     const handleSubmit = async (e) => {
         // e.preventDefault()
-        console.log(user.id)
         await fetch('/api/reviews', {
             method: 'POST',
             body: JSON.stringify({
