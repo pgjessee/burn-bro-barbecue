@@ -7,6 +7,7 @@ import ReviewsPage from './components/ReviewsPage'
 import OrderFormPage from './components/OrderFormPage'
 import CheckoutItems from './components/CheckoutPage'
 import ListMenuEntrees from './components/MenuPage'
+import WriteReview from './components/WriteReviewPage'
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/reviews">
             <ReviewsPage />
+          </Route>
+          <Route path="/write-review">
+            <WriteReview user={sessionUser} />
           </Route>
           <Route path="/menu">
             <ListMenuEntrees />

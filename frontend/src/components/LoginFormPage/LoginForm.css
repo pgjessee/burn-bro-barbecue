@@ -1,6 +1,11 @@
+
+
+
 .form-container {
     display: flex;
     align-items: center;
+    flex-direction: column;
+
 }
 
 .login-form {
@@ -8,18 +13,18 @@
     font-family: 24px;
     color: white;
     background-color: firebrick;
-
-
-    margin: 100px auto;
-    padding: 50px;
-
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    /* justify-content: flex-end; */
     border-radius: 10px;
-
     box-shadow: 0 0 10px 1px;
-    width: 500px;
+    height: 600px;
+
 }
+
+
+
 
 .errs {
     color: white;
@@ -31,4 +36,10 @@ label {
 
 input {
     border-radius: 10px;
+}
+
+.return-home-button {
+    display: flex;
+    justify-content: center;
+    /* box-shadow: 0 0 10px 3px; */
 }

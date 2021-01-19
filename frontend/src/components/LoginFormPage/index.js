@@ -58,7 +58,9 @@ function LoginFormPage() {
               />
             </label>
             </div>
-            <button type="submit">Log In</button>
+            <div className="login-form-submit-button">
+              <button type="submit">Log In</button>
+            </div>
           </form>
         </div>
         <div className="return-home-button">

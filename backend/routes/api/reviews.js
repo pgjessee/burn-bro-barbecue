@@ -9,7 +9,8 @@ const router = express.Router();
 router.get('/', asyncHandler(async(req, res) => {
 
     const reviews = await Review.findAll({
-        include: User
+        include: User,
+        order: [["createdAt", "DESC"]]
     });
     const reviewsJson = res.json({reviews});
     return reviewsJson;

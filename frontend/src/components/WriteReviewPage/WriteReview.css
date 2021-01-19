@@ -1,0 +1,51 @@
+.write-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.write-review-header-container {
+    display: flex;
+    justify-content: center;
+    color: firebrick;
+    border-style: dashed;
+    width: 400px;
+}
+
+.write-review-header {
+    color: firebrick;
+}
+
+.write-review-text-area {
+    padding-top: 20px;
+}
+
+textarea {
+    font-size: 24px;
+    border-radius: 80px;
+    padding: 35px;
+    border-color: firebrick;
+    border-width: 3px;
+    resize: none;
+    box-shadow: 0 0 10px 1px;
+}
+
+.write-review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.write-review-button-container {
+    padding-top: 10px;
+}
+
+.write-review-submit {
+    background-color: firebrick;
+    color: white;
+    border-radius: 60px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 0 0 10px 1px;
+    font-size: 24px;
+}

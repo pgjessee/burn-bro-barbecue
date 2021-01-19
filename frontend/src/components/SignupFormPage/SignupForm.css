@@ -1,9 +1,4 @@
-.page-container {
-    background-color: yellowgreen;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 .form-container {
     display: flex;
@@ -23,7 +18,7 @@
 }
 
 .homepage-logo {
-    /* background-color: yellowgreen; */
+
     display: flex;
     height: 250px;
     width: 350px;
@@ -40,8 +35,8 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: space-between;
     border-radius: 10px;
 
     box-shadow: 0 0 10px 1px;
@@ -61,5 +56,22 @@
 
 input {
     height: 24px;
+    margin: 10px;
     /* padding-left: 35px; */
+    border: none;
+    outline: none;
 }
+
+label {
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+
+
+
+
+
+
+
+/* background: linear-gradient( rgb(236, 224, 224) 0.5%,  rgb(212, 190, 194) 99.5%); */

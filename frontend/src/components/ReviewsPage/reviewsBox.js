@@ -9,7 +9,7 @@ const ReviewBox = ({ review }) => {
                 <h2>- {review.User.first_name}</h2>
             </div>
             <div className="review__delete-button">
-                <button>Delete Review</button>
+                <button className="remove-review-button">Delete Review</button>
             </div>
         </div>
     )
