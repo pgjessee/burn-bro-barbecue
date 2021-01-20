@@ -5,6 +5,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import ReviewsPage from './components/ReviewsPage'
 import OrderFormPage from './components/OrderFormPage'
+import ListPreviousOrders from './components/PreviousOrdersPage'
 import CheckoutItems from './components/CheckoutPage'
 import ListMenuEntrees from './components/MenuPage'
 import WriteReview from './components/WriteReviewPage'
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/new-order">
             <OrderFormPage />
+          </Route>
+          <Route exact path="/previous-orders">
+            <ListPreviousOrders user={sessionUser}/>
           </Route>
           <Route path="/reviews">
             <ReviewsPage />

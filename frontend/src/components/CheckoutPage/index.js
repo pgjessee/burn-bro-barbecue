@@ -10,17 +10,25 @@ import OrderLineItem from './OrderLineItem'
 
 const CheckoutItems = ({ user }) => {
     const [lineItems, setLineItems] = useState([]);
+    const [ordersTotal, setOrdersTotal] = useState((0));
 
     useEffect(() => {
         (async () => {
-            let orderLineItems = [];
 
+            let orderTotal = 0;
+            let orderLineItems = [];
             for (let i = 0; i < localStorage.length; i++) {
                 let entreeKey = localStorage.key(i);
                 let res = await fetch(`/api/entrees/${entreeKey}`);
                 let { entree } = res.data;
+                let lineItemQuantity = parseInt(localStorage.getItem(entreeKey), 10);
+                console.log(lineItemQuantity)
+                entree["lineItemQuantity"] = lineItemQuantity
+                orderTotal += (entree.entree_price * lineItemQuantity)
+                console.log(entree)
                 orderLineItems.push(entree)
             }
+            setOrdersTotal(orderTotal)
             setLineItems(orderLineItems)
         })()
 
@@ -112,12 +120,31 @@ const CheckoutItems = ({ user }) => {
     };
 
     return (
-        <div>
-            <div className="checkout-page-header"><h1>Checkout</h1></div>
+        <div className="checkout-page">
+        <div className="checkout-page-header"><h1>Checkout</h1></div>
             <div className='checkout-container'>
-                {lineItems.map(lineItem => {
-                    return <OrderLineItem key={lineItem.id} lineItem={lineItem}/>
-                })}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entrée</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Entrée Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {lineItems.map(lineItem => {
+                            return <OrderLineItem key={lineItem.id} lineItem={lineItem}/>
+                        })}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                Order Total: ${ordersTotal}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
             <div className="submit-new-order">
                 <button type="submit" onClick={submitOrder}>Submit Order</button>

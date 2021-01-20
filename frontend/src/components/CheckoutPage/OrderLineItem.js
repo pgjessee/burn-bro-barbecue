@@ -5,13 +5,13 @@ const OrderLineItem = ({ lineItem }) => {
 
 
     return (
-        <>
-        <div className="line-items__item-box">
-            <h2>{lineItem.entree_name}</h2>
-            <h2><strong>${lineItem.entree_price}</strong></h2>
-            <button>Remove Item(s)</button>
-        </div>
-        </>
+        <tr>
+            <td>{lineItem.entree_name}</td>
+            <td>${lineItem.entree_price}</td>
+            <td>{lineItem.lineItemQuantity}</td>
+            <td>${lineItem.lineItemQuantity * lineItem.entree_price}</td>
+            <td><button>Delete</button></td>
+        </tr>
     )
 };
 
