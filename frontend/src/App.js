@@ -9,6 +9,7 @@ import ListPreviousOrders from './components/PreviousOrdersPage'
 import CheckoutItems from './components/CheckoutPage'
 import ListMenuEntrees from './components/MenuPage'
 import WriteReview from './components/WriteReviewPage'
+import DisplayFoodInventory from './components/FoodInventoryPage'
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/new-order/checkout">
             <CheckoutItems user={sessionUser}/>
+          </Route>
+          <Route path="/food-inventory">
+            <DisplayFoodInventory />
           </Route>
         </Switch>
       )}

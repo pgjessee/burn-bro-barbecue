@@ -7,7 +7,6 @@ import { fetch } from '../../store/csrf';
 import OrderLineItem from './OrderLineItem'
 
 
-
 const CheckoutItems = ({ user }) => {
     const [lineItems, setLineItems] = useState([]);
     const [ordersTotal, setOrdersTotal] = useState((0));
