@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import IngredientRow from './IngredientRow';
 import { fetch } from '../../store/csrf';
 
 const DisplayFoodInventory = () => {
@@ -11,7 +12,11 @@ const DisplayFoodInventory = () => {
             let res;
 
             res = await fetch('/api/ingredients')
-            console.log(res)
+            const { ingredients } = res.data;
+            console.log(ingredients);
+            setAllIngredients(ingredients);
+
+
         })()
     }, [])
 
@@ -27,6 +32,11 @@ const DisplayFoodInventory = () => {
                             <th>Unit of Measurement</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {allIngredients.map(ingredient => {
+                            return <IngredientRow key={ingredient.id} ingredient={ingredient} />
+                        })};
+                    </tbody>
                 </table>
                 <div></div>
                 <table>
@@ -39,8 +49,12 @@ const DisplayFoodInventory = () => {
                             <th>Unit of Measurement</th>
                             <th>Beginning Balance</th>
                             <th>Ending Balance</th>
+                            <th>Created At</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        
+                    </tbody>
                 </table>
             </div>
         </div>

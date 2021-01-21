@@ -1,13 +1,15 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Ingredient, Food_Log } = require('../../db/models')
+const { Ingredient, Food_Log, Measurement } = require('../../db/models')
 
 const router = express.Router();
 
 
 router.get('/', asyncHandler(async(req, res) => {
-    const ingredients = await Ingredient.findAll();
+    const ingredients = await Ingredient.findAll({
+        include: Measurement
+    });
     const ingredientsJSon = res.json({ ingredients })
     return ingredientsJSon
 }));
