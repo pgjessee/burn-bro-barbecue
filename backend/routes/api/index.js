@@ -44,8 +44,17 @@ router.get('/set-token-cookie', asyncHandler(async(req, res) => {
 }));
 
 
+
 router.get(
     '/restore-user',
+    restoreUser,
+    (req, res) => {
+      return res.json(req.user);
+    }
+);
+
+router.get(
+    '/csrf/restore',
     restoreUser,
     (req, res) => {
       return res.json(req.user);
