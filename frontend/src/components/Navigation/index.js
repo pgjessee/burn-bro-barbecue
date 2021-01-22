@@ -17,29 +17,29 @@ function Navigation({ isLoaded }){
     console.log(sessionUser);
     // console.log(sessionUser.email)
 
-    if (sessionUser.is_active) {
-      sessionLinks = (
-        <EmployeePage user={sessionUser} />
-      )
-    } else if (sessionUser) {
-      sessionLinks = (
-        <UserPage user={sessionUser} />
-      );
-    } else {
-      sessionLinks = (
-        <SplashPage />
-      )
-    }
-
-    // if (sessionUser) {
+    // if (sessionUser.is_active) {
     //   sessionLinks = (
-    //     <UserPage user={sessionUser}/>
+    //     <EmployeePage user={sessionUser} />
+    //   )
+    // } else if (sessionUser) {
+    //   sessionLinks = (
+    //     <UserPage user={sessionUser} />
     //   );
     // } else {
     //   sessionLinks = (
     //     <SplashPage />
-    //   );
+    //   )
     // }
+
+    if (sessionUser) {
+      sessionLinks = (
+        <UserPage user={sessionUser}/>
+      );
+    } else {
+      sessionLinks = (
+        <SplashPage />
+      );
+    }
 
     return (
       <div className="splash-page">
