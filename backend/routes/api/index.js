@@ -53,13 +53,7 @@ router.get(
     }
 );
 
-// router.get(
-//     '/csrf/restore',
-//     restoreUser,
-//     (req, res) => {
-//       return res.json(req.user);
-//     }
-// );
+
 
 router.get(
     '/require-auth',
