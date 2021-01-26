@@ -4,13 +4,14 @@ import PreviousOrderTables from './PreviousOrdersTable'
 
 
 const ListPreviousOrders = ({ user }) => {
-    const [previousOrders, setAllPreviousOrders] = useState([]);
+    const [prevOrders, setAllPreviousOrders] = useState([]);
 
     useEffect(() => {
         (async () => {
             const res = await fetch(`/api/orders/user/${user.id}`)
             const { orders } = await res.json();
             setAllPreviousOrders(orders)
+            console.log(orders)
         })()
     }, [])
 
@@ -23,7 +24,7 @@ const ListPreviousOrders = ({ user }) => {
                 <h1>Your Previous Orders</h1>
             </div>
             <div className="user-previous-orders">
-                {previousOrders.map(previousOrder => {
+                {prevOrders.map(previousOrder => {
                     return <PreviousOrderTables key={previousOrder.id} previousOrder={previousOrder}/>
                 })}
             </div>
