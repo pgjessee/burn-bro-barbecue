@@ -7,16 +7,20 @@ const PreviousOrderTables = ({ previousOrder }) => {
     // setOrdersData(previousOrder.Order_Entrees)
     useEffect(() => {
         (async () => {
-            setOrdersData(previousOrder.Order_Entrees)
-            console.log(ordersData)
+
+            let orderEntrees = previousOrder.Order_Entrees;
+
+            setOrdersData(orderEntrees)
+
         })()
     }, [])
 
     return (
         <table>
             <thead>
+                <tr><th>Order ID</th></tr>
+                <tr><td>{previousOrder.id}</td></tr>
                 <tr>
-                    <th>Order ID</th>
                     <th>Entrée Name</th>
                     <th>Price</th>
                     <th>X</th>
@@ -26,7 +30,7 @@ const PreviousOrderTables = ({ previousOrder }) => {
             </thead>
             <tbody>
                 {ordersData.map(orderEntree => {
-                    return <PreviousOrderTableBody key={orderEntree.order_id} orderEntree={orderEntree}/>
+                    return <PreviousOrderTableBody key={orderEntree.id} orderEntree={orderEntree}/>
                 })}
             </tbody>
             <tfoot>

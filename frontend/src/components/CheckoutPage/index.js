@@ -149,6 +149,9 @@ const CheckoutItems = ({ user }) => {
             <div className="submit-new-order">
                 <button type="submit" onClick={submitOrder}>Submit Order</button>
             </div>
+            <div className="return-home-button">
+                <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
+            </div>
         </div>
     )
 };

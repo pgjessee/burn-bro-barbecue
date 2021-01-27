@@ -10,8 +10,26 @@ const ListPreviousOrders = ({ user }) => {
         (async () => {
             const res = await fetch(`/api/orders/user/${user.id}`)
             const { orders } = await res.json();
+
+            let start = orders[0];
+            start = start.Order_Entrees.length;
+
+
+            let incrementer = 1;
+            let order, orderEntrees, entree;
+            for (let i = 0; i < orders.length; i++) {
+                order = orders[i]
+                orderEntrees = order.Order_Entrees;
+
+                for (let i = 0; i < orderEntrees.length; i++) {
+                    entree = orderEntrees[i];
+                    entree["id"] = incrementer;
+                    incrementer += 1;
+                }
+            }
+
             setAllPreviousOrders(orders)
-            console.log(orders)
+
         })()
     }, [])
 
