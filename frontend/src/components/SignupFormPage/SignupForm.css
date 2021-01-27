@@ -35,12 +35,11 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    border-radius: 10px;
+    align-items: center;
+    border-radius: 30px;
 
     box-shadow: 0 0 10px 1px;
-    width: 500px;
+    width: 555px;
 }
 
 .input-container {
@@ -48,6 +47,21 @@
     flex-direction: row;
     justify-content: flex-end;
     /* justify-content: space-evenly; */
+}
+
+.submit-button-form-div {
+    padding-top: 50px;
+}
+
+.signup-form-submit-button {
+    font-family: "Roboto", sans-serif;
+    background-color: #FFE2AD;
+    font-size: 24px;
+    color: firebrick;
+    border-radius: 80px;
+    width: 200px;
+    height: 55px;
+    box-shadow: 0 0 10px 1px;
 }
 
 .errs {

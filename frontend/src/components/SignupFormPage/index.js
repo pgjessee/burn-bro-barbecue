@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 import './SignupForm.css'
@@ -40,71 +40,65 @@ function SignupFormPage() {
           </ul>
           <div className="input-container">
             <div>
-            <label>
-              First Name:
-            </label>
-            </div>
-            <div>
             <input
+              className="auth-form-inputs"
               type="text"
               value={first_name}
               onChange={(e) => setFirstname(e.target.value)}
+              placeholder="First Name"
               required
             />
             </div>
           </div>
           <div className="input-container">
             <div>
-            <label>
-              Email:
-            </label>
-            </div>
-            <div>
             <input
+              className="auth-form-inputs"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
               required
             />
             </div>
           </div>
           <div className="input-container">
-            <label>
-              Zip:
-            </label>
             <input
+              className="auth-form-inputs"
               type="text"
               value={zip}
               onChange={(e) => setZip(e.target.value)}
+              placeholder="Zip Code"
               required
             />
           </div>
           <div className="input-container">
-            <label>
-              Password:
-            </label>
             <input
+              className="auth-form-inputs"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
               required
             />
           </div>
           <div className="input-container">
-            <label>
-              Confirm Password:
-            </label>
             <input
+              className="auth-form-inputs"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm Password"
               required
             />
           </div>
-          <div className="submit-button">
-            <button type="submit">Sign Up</button>
+          <div className="submit-button-form-div">
+            <button className="signup-form-submit-button" type="submit">Sign Up</button>
           </div>
         </form>
+      </div>
+      <div className="return-home-button">
+            <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
       </div>
     </div>
   );

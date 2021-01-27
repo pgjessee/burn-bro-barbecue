@@ -33,33 +33,32 @@ function LoginFormPage() {
         </div>
         <div className="form-container">
           <form className="login-form" onSubmit={handleSubmit}>
+          <div><h1>Welcome, back!</h1></div>
             <ul>
               {errors.map((error, idx) => <li className="errs" key={idx}>{error}</li>)}
             </ul>
             <div>
-              <label className="login-label">
-                Email
                 <input
+                  className="auth-form-inputs"
                   type="text"
                   value={credential}
                   onChange={(e) => setCredential(e.target.value)}
+                  placeholder="Email"
                   required
                 />
-              </label>
             </div>
             <div>
-            <label className="login-label">
-              Password
               <input
+                className="auth-form-inputs"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                placeholder="Password"
               />
-            </label>
             </div>
-            <div className="login-form-submit-button">
-              <button type="submit">Log In</button>
+            <div className="login-form-submit-button-div">
+              <button className="login-form-submit-button" type="submit">Log In</button>
             </div>
           </form>
         </div>

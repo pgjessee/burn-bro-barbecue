@@ -5,26 +5,45 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-
 }
 
 .login-form {
     font-family: "Roboto", sans-serif;
-    font-family: 24px;
+    /* font-size: 24px; */
     color: white;
     background-color: firebrick;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* justify-content: flex-end; */
-    border-radius: 10px;
+    align-items: center;
+    border-radius: 30px;
     box-shadow: 0 0 10px 1px;
-    height: 600px;
-
+    height: 450px;
+    width: 555px
 }
 
+.auth-form-inputs{
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    width: 400px;
+    height: 45px;
+    border-radius: 80px;
+    padding-left: 20px;
+}
 
+.login-form-submit-button-div {
+    padding-top: 50px;
+}
 
+.login-form-submit-button {
+    font-family: "Roboto", sans-serif;
+    background-color: #FFE2AD;
+    font-size: 24px;
+    color: firebrick;
+    border-radius: 80px;
+    width: 200px;
+    height: 55px;
+    box-shadow: 0 0 10px 1px;
+}
 
 .errs {
     color: white;
