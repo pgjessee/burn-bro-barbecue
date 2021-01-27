@@ -26,6 +26,9 @@ function UserPage({ user }) {
                 <NavLink to="/write-review"><button className="navigation-button">Write a Review</button></NavLink>
             </div>
             <div>
+                <NavLink to="/previous-orders"><button className="navigation-button">View Previous Orders</button></NavLink>
+            </div>
+            <div>
                 <NavLink to="/"><button className="navigation-button" onClick={logout}>Log Out</button></NavLink>
             </div>
         </div>
