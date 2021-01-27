@@ -31,7 +31,7 @@ router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });
 });
 
-module.exports = router;
+
 
 router.get('/set-token-cookie', asyncHandler(async(req, res) => {
     const user = await User.findOne({
@@ -54,6 +54,7 @@ router.get(
 );
 
 
+
 router.get(
     '/require-auth',
     requireAuth,
@@ -63,6 +64,9 @@ router.get(
 );
 
 
+// router.post('/test', function(req, res) {
+//     res.json({ requestBody: req.body });
+// });
 
 
-
+module.exports = router;
