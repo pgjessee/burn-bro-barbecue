@@ -6,7 +6,7 @@ import * as sessionActions from '../../store/session';
 import { fetch } from '../../store/csrf';
 import OrderLineItem from './OrderLineItem'
 
-
+import './CheckoutPage.css'
 
 const CheckoutItems = ({ user }) => {
     const [lineItems, setLineItems] = useState([]);
@@ -120,7 +120,7 @@ const CheckoutItems = ({ user }) => {
     };
 
     return (
-        <div className="checkout-page">
+        <div className="checkout-page-container">
         <div className="checkout-page-header"><h1>Checkout</h1></div>
             <div className='checkout-container'>
                 <table>
@@ -128,6 +128,7 @@ const CheckoutItems = ({ user }) => {
                         <tr>
                             <th>Entrée</th>
                             <th>Price</th>
+                            <th>X</th>
                             <th>Quantity</th>
                             <th>Entrée Total</th>
                         </tr>
@@ -139,15 +140,20 @@ const CheckoutItems = ({ user }) => {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>
-                                Order Total: ${ordersTotal}
-                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td id="checkout-order-total">Order Total: ${ordersTotal}</td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
             <div className="submit-new-order">
-                <button type="submit" onClick={submitOrder}>Submit Order</button>
+                <NavLink to="/"><button id="new-order-submit" onClick={submitOrder}>Submit Order</button></NavLink>
+            </div>
+            <div className="return-home-button">
+                <NavLink to="/new-order"><button className="navigation-button">Return to Order Form</button></NavLink>
             </div>
             <div className="return-home-button">
                 <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>

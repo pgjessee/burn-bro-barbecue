@@ -1,0 +1,47 @@
+
+
+.checkout-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.checkout-entree-line-item-price {
+    text-align: center;
+}
+
+.checkout-entree-line-item-quantity {
+    text-align: center;
+}
+
+.checkout-entree-line-item-multiplier {
+    text-align: center;
+}
+
+.checkout-entree-line-item-subtotal {
+    text-align: right;
+}
+
+.delete-checkout-line-item {
+    background-color: firebrick;
+    color: white;
+}
+
+#checkout-order-total {
+    text-align: right;
+}
+
+.submit-new-order {
+    padding-top: 25px;
+}
+
+#new-order-submit {
+    background-color: green;
+    color: white;
+    border-radius: 60px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 0 0 10px 1px;
+    font-size: 24px;
+}
