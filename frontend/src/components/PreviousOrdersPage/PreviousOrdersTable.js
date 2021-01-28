@@ -4,11 +4,15 @@ import PreviousOrderTableBody from './PreviousOrdersBody'
 
 const PreviousOrderTables = ({ previousOrder }) => {
     const [ordersData, setOrdersData] = useState([])
+
+    let visitDate = previousOrder.createdAt
+    visitDate = `${visitDate.slice(5, 10)}-${visitDate.slice(0,4)}`
     // setOrdersData(previousOrder.Order_Entrees)
     useEffect(() => {
         (async () => {
 
             let orderEntrees = previousOrder.Order_Entrees;
+
 
             setOrdersData(orderEntrees)
 
@@ -19,7 +23,7 @@ const PreviousOrderTables = ({ previousOrder }) => {
         <table>
             <thead>
                 <tr><th>Order ID</th></tr>
-                <tr><td>{previousOrder.id}</td></tr>
+                <tr><td className="previous-order-id">{previousOrder.id}</td></tr>
                 <tr>
                     <th>Entrée Name</th>
                     <th>Price</th>
@@ -34,8 +38,20 @@ const PreviousOrderTables = ({ previousOrder }) => {
                 })}
             </tbody>
             <tfoot>
-                <tr><td>Order Total: ${previousOrder.order_total}</td></tr>
-                <tr><td>Date Visited: {previousOrder.createdAt}</td></tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td className="previous-order-footer">Order Total: ${previousOrder.order_total}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td className="previous-order-footer">Date Visited: {visitDate}</td>
+                </tr>
             </tfoot>
         </table>
     )

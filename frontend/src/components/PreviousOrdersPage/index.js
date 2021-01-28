@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PreviousOrderTables from './PreviousOrdersTable'
 
+import './PreviousOrdersPage.css'
 
 const ListPreviousOrders = ({ user }) => {
     const [prevOrders, setAllPreviousOrders] = useState([]);
@@ -10,10 +11,6 @@ const ListPreviousOrders = ({ user }) => {
         (async () => {
             const res = await fetch(`/api/orders/user/${user.id}`)
             const { orders } = await res.json();
-
-            let start = orders[0];
-            start = start.Order_Entrees.length;
-
 
             let incrementer = 1;
             let order, orderEntrees, entree;
@@ -38,7 +35,7 @@ const ListPreviousOrders = ({ user }) => {
             <div className="home-button">
                 <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
             </div>
-            <div>
+            <div className="previous-orders-header">
                 <h1>Your Previous Orders</h1>
             </div>
             <div className="user-previous-orders">
@@ -46,7 +43,7 @@ const ListPreviousOrders = ({ user }) => {
                     return <PreviousOrderTables key={previousOrder.id} previousOrder={previousOrder}/>
                 })}
             </div>
-            <div className="home-button">
+            <div id="previous-orders-footer-return" className="home-button">
                 <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
             </div>
         </div>

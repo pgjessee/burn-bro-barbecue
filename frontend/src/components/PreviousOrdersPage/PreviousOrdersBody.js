@@ -5,11 +5,11 @@ const PreviousOrderTableBody = ({ orderEntree }) => {
 
     return (
         <tr>
-            <td>{orderEntree.Entree.entree_name}</td>
-            <td>${orderEntree.Entree.entree_price}</td>
-            <td>X</td>
-            <td>{orderEntree.quantity}</td>
-            <td>${orderEntree.quantity * orderEntree.Entree.entree_price}</td>
+            <td className="previous-order-entree">{orderEntree.Entree.entree_name}</td>
+            <td className="previous-order-entree-price">${orderEntree.Entree.entree_price}</td>
+            <td className="previous-orders-multiplier">X</td>
+            <td className="previous-entree-quantity">{orderEntree.quantity}</td>
+            <td className="previous-entree-subtotal">${orderEntree.quantity * orderEntree.Entree.entree_price}</td>
         </tr>
     )
 }
