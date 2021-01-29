@@ -158,6 +158,9 @@ const CheckoutItems = ({ user }) => {
             <div className="return-home-button">
                 <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
             </div>
+            <div className="home-button">
+                <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
+            </div>
         </div>
     )
 };
