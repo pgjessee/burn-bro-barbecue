@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.get('/', asyncHandler(async(req, res) => {
     const ingredients = await Ingredient.findAll({
-        include: Measurement
+        include: Measurement,
+        order: [["id", "ASC"]]
     });
     const ingredientsJSon = res.json({ ingredients })
     return ingredientsJSon
