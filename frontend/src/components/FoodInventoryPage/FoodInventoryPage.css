@@ -1,0 +1,74 @@
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ingredients-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ingredients-balance-header {
+    font-size: 32px;
+}
+
+.food-log-theads th {
+    border: 2px solid black;
+}
+
+
+.food-inventory-balance {
+    font-size: 24px;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+.food-inventory-balance td {
+    border-left: 2px solid black;
+}
+
+.ingredient-balance-id {
+    text-align: center;
+}
+
+.ingredient-balance-stock {
+    text-align: center;
+}
+
+.ingredient-balance-measurement {
+    text-align: center;
+}
+
+.food-log-header {
+    font-size: 32px;
+}
+
+.food-log-table {
+    font-size: 24px;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+.food-log-table td {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+
+.food-log-delta {
+    text-align: center;
+}
+
+.food-log-measurement {
+    text-align: center;
+}
+
+.food-log-beginning-balance {
+    text-align: center;
+}
+
+.food-log-ending-balance {
+    text-align: center;
+}

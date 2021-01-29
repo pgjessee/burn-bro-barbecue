@@ -4,6 +4,8 @@ import IngredientRow from './IngredientRow';
 import FoodLog from './FoodLog'
 import { fetch } from '../../store/csrf';
 
+import './FoodInventoryPage.css'
+
 const DisplayFoodInventory = () => {
     const [allIngredients, setAllIngredients] = useState([]);
     const [foodInventoryLogs, setFoodInventoryLogs] = useState([]);
@@ -40,10 +42,10 @@ const DisplayFoodInventory = () => {
             </div>
             <div className="ingredients-balance-header"><h1>Ingredients Balance</h1></div>
             <div className="ingredients-container">
-                <table>
-                    <thead>
+                <table className="food-inventory-balance">
+                    <thead className="food-log-theads">
                         <tr>
-                            <th>Ingredeint ID</th>
+                            <th>Ingredient ID</th>
                             <th>Ingredient Name</th>
                             <th>Inventory Stock</th>
                             <th>Unit of Measurement</th>
@@ -55,10 +57,10 @@ const DisplayFoodInventory = () => {
                         })}
                     </tbody>
                 </table>
-                <div></div>
+                {/* <div></div> */}
                 <div className="food-log-header"><h1>Food Log</h1></div>
-                <table>
-                    <thead>
+                <table className="food-log-table">
+                    <thead className="food-log-theads">
                         <tr>
                             <th>Employee Name</th>
                             <th>Ingredient Name</th>
