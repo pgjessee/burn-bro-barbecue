@@ -22,10 +22,10 @@ const CheckoutItems = ({ user }) => {
                 let res = await fetch(`/api/entrees/${entreeKey}`);
                 let { entree } = res.data;
                 let lineItemQuantity = parseInt(localStorage.getItem(entreeKey), 10);
-                console.log(lineItemQuantity)
+                // console.log(lineItemQuantity)
                 entree["lineItemQuantity"] = lineItemQuantity
                 orderTotal += (entree.entree_price * lineItemQuantity)
-                console.log(entree)
+                // console.log(entree)
                 orderLineItems.push(entree)
             }
             setOrdersTotal(orderTotal)
@@ -154,9 +154,6 @@ const CheckoutItems = ({ user }) => {
             </div>
             <div className="return-home-button">
                 <NavLink to="/new-order"><button className="navigation-button">Return to Order Form</button></NavLink>
-            </div>
-            <div className="return-home-button">
-                <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
             </div>
             <div className="home-button">
                 <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>

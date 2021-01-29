@@ -14,7 +14,7 @@ function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
-    console.log(sessionUser);
+    // console.log(sessionUser);
     // console.log(sessionUser.email)
 
     // if (sessionUser.is_active) {
