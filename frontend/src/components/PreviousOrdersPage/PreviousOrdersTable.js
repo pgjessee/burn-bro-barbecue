@@ -20,16 +20,17 @@ const PreviousOrderTables = ({ previousOrder }) => {
     }, [])
 
     return (
-        <table>
+        <div className="user-previous-order-table">
+        <table className="previous-orders-tables">
             <thead>
-                <tr><th>Order ID</th></tr>
+                <tr><th className="previous-headers">Order ID</th></tr>
                 <tr><td className="previous-order-id">{previousOrder.id}</td></tr>
                 <tr>
-                    <th>Entrée Name</th>
-                    <th>Price</th>
-                    <th>X</th>
-                    <th>Quantity</th>
-                    <th>Entrée Total</th>
+                    <th className="previous-headers">Entrée Name</th>
+                    <th className="previous-headers">Price</th>
+                    <th className="previous-headers">X</th>
+                    <th className="previous-headers">Quantity</th>
+                    <th className="previous-headers">Entrée Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,23 +38,24 @@ const PreviousOrderTables = ({ previousOrder }) => {
                     return <PreviousOrderTableBody key={orderEntree.id} orderEntree={orderEntree}/>
                 })}
             </tbody>
-            <tfoot>
+            <tfoot className="previous-footers">
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td className="previous-order-footer">Order Total: ${previousOrder.order_total}</td>
+                    <td className="previous-order-totals">Order Total: ${previousOrder.order_total}</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td className="previous-order-footer">Date Visited: {visitDate}</td>
+                    <td className="previous-order-dates">Date Visited: {visitDate}</td>
                 </tr>
             </tfoot>
         </table>
+        </div>
     )
 
 }

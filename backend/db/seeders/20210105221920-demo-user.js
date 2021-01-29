@@ -18,8 +18,8 @@ module.exports = {
           hashed_password: bcrypt.hashSync('123')
         },
         {
-          first_name: 'Nerf',
-          email: "nerf@aa.io",
+          first_name: 'Ian Bentley',
+          email: "ian@aa.io",
           zip: "74012",
           hashed_password: bcrypt.hashSync('123')
         },
