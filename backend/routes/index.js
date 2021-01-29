@@ -1,8 +1,8 @@
 const express = require('express');
 
+const router = express.Router();
 const apiRouter = require('./api')
 
-const router = express.Router();
 
 router.use(express.json());
 router.use('/api', apiRouter)
@@ -41,10 +41,10 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-// router.get('/hello/world', function(req, res) {
-//   res.cookie('XSRF-TOKEN', req.csrfToken());
-//   res.send('Hello World!');
-// });
+router.get('/hello/world', function(req, res) {
+  res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.send('Hello World!');
+});
 
 module.exports = router;
 

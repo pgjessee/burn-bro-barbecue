@@ -26,7 +26,8 @@ router.get('/user/:id(\\d+)', asyncHandler(async (req, res) => {
         include: {
             model: Order_Entree,
             include: Entree
-        }
+        },
+        order: [["createdAt", "DESC"]]
     });
 
     return res.json({ orders })

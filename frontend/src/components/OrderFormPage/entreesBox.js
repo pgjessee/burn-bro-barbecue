@@ -30,6 +30,7 @@ const EntreeBox = ({ entree }) => {
                 <h2><strong>Price ${entree.entree_price}</strong></h2>
                 <h2><strong>X</strong></h2>
                 <input
+                className="order-quantity-input"
                 min={0}
                 value={amount}
                 onChange={(e) => setAmount(e.target.value < 0 ? 0 : e.target.value)}

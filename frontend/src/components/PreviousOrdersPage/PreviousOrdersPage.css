@@ -1,0 +1,86 @@
+
+
+.previous-orders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.previous-orders-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    color: firebrick;
+    width: 400px;
+    border-style: dashed;
+}
+
+/* .user-previous-order-table {
+    margin: 30px;
+    padding: 30px;
+    border: 2px solid black;
+} */
+
+.previous-orders-tables {
+    font-size: 24px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: 30px;
+}
+
+.previous-headers {
+    border: 2px solid black;
+}
+
+.previous-order-id {
+    text-align: center;
+    border: 2px solid black;
+}
+
+.previous-order-entree {
+    text-align: left;
+}
+
+.previous-order-entree-price {
+    text-align: center;
+}
+
+.previous-orders-multiplier {
+    text-align: center;
+}
+
+.previous-entree-quantity {
+    text-align: center;
+}
+
+.previous-entree-subtotal {
+    text-align: right;
+}
+
+.previous-entree-subtotal {
+    border-left: 2px solid black;
+}
+
+.previous-footers {
+    border-top: 2px solid black;
+}
+
+.previous-order-totals {
+    text-align: right;
+    border-style: double;
+}
+
+.previous-order-dates {
+    text-align: right;
+    border-left: 2px solid black;
+}
+
+tfoot {
+    border: 1px solid black;
+}
+
+#previous-orders-footer-return {
+    padding-top: 50px;
+}

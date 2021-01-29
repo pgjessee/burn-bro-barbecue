@@ -26,7 +26,7 @@ const ListMenuEntrees = () => {
                     return <MenuEntreeBox key={entree.id} entree={entree}/>
                 })}
             </div>
-            <div className="return-home-button">
+            <div className="return-home-menu-button">
                 <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
             </div>
         </div>
