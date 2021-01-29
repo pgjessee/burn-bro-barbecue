@@ -121,16 +121,16 @@ const CheckoutItems = ({ user }) => {
 
     return (
         <div className="checkout-page-container">
-        <div className="checkout-page-header"><h1>Checkout</h1></div>
             <div className='checkout-container'>
-                <table>
+            <div className="checkout-page-header"><h1>Checkout</h1></div>
+                <table id="checkout-table">
                     <thead>
                         <tr>
-                            <th>Entrée</th>
-                            <th>Price</th>
-                            <th>X</th>
-                            <th>Quantity</th>
-                            <th>Entrée Total</th>
+                            <th className="checkout-headers">Entrée</th>
+                            <th className="checkout-headers">Price</th>
+                            <th id="multiplier" className="checkout-headers">X</th>
+                            <th className="checkout-headers">Quantity</th>
+                            <th className="checkout-headers">Entrée Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -148,9 +148,9 @@ const CheckoutItems = ({ user }) => {
                         </tr>
                     </tfoot>
                 </table>
-            </div>
             <div className="submit-new-order">
                 <NavLink to="/"><button id="new-order-submit" onClick={submitOrder}>Submit Order</button></NavLink>
+            </div>
             </div>
             <div className="return-home-button">
                 <NavLink to="/new-order"><button className="navigation-button">Return to Order Form</button></NavLink>
