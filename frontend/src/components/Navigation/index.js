@@ -30,6 +30,7 @@ function Navigation({ isLoaded }){
     //     <SplashPage />
     //   )
     // }
+    console.log(sessionUser)
 
     if (sessionUser) {
       sessionLinks = (

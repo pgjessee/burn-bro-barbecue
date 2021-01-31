@@ -57,7 +57,7 @@ export const signup = (user) => async (dispatch) => {
 
 
 export const logout = () => async (dispatch) => {
-    const res = await(fetch('/api/session'), {
+    const res = await fetch('/api/session', {
         method: 'DELETE'
     })
     dispatch(removeSessionUser())
