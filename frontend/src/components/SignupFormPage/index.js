@@ -30,7 +30,7 @@ function SignupFormPage() {
   };
 
   return (
-    <div className="page-container">
+    <div className="signup-page-container">
       <div className="logo-div"><Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link></div>
       <div className="form-container">
         <form className="signup-form" onSubmit={handleSubmit}>

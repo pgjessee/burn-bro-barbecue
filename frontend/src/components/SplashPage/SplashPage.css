@@ -4,3 +4,31 @@
     background-color: firebrick;
     color: white;
 }
+
+
+.splash-navigation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.splash-button-container {
+    margin-top: 50px;
+}
+
+
+.splash-navigation-button {
+    background-color: firebrick;
+    color: white;
+    border-radius: 60px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 0 0 10px 1px;
+    font-size: 24px;
+}
+
+.splash-navigation-button:hover {
+    color: white;
+    background-color: #ea1d1d;
+}

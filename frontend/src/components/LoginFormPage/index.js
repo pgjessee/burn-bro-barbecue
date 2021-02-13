@@ -31,12 +31,14 @@ function LoginFormPage() {
         <div className="logo-div">
           <Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link>
         </div>
-        <div className="form-container">
+        <div className="login-form-container">
           <form className="login-form" onSubmit={handleSubmit}>
           <div><h1>Welcome, back!</h1></div>
+          <div className="errs-container">
             <ul>
               {errors.map((error, idx) => <li className="errs" key={idx}>{error}</li>)}
             </ul>
+          </div>
             <div>
                 <input
                   className="auth-form-inputs"

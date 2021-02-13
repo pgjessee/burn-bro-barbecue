@@ -3,7 +3,6 @@ import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import EmployeePage from '../EmployeePage'
 import UserPage from '../UserPage'
-import ProfileButton from './ProfileButton';
 import SplashPage from '../SplashPage'
 import './Navigation.css';
 
@@ -30,7 +29,7 @@ function Navigation({ isLoaded }){
     //     <SplashPage />
     //   )
     // }
-    console.log(sessionUser)
+    // console.log(sessionUser)
 
     if (sessionUser) {
       sessionLinks = (

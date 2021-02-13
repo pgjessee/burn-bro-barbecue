@@ -1,16 +1,11 @@
 /* TODO Add site wide styles */
 
 body {
+    margin: 0px;
     background-color: #FFE2AD;
 }
 
 .homepage-logo {
-
-    /* margin-left: auto; */
     display: flex;
-    /* justify-content: center; */
 }
 
-/* table, th, td {
-    border:  1px solid black;
-} */

@@ -8,15 +8,7 @@
     align-items: center;
 }
 
-.splash-navigation-container {
-    height: 250px;
-    width: 500px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .navigation-button {
     background-color: firebrick;
@@ -26,6 +18,11 @@
     width: 300px;
     box-shadow: 0 0 10px 1px;
     font-size: 24px;
+}
+
+.navigation-button:hover {
+    color: white;
+    background-color: #ea1d1d;
 }
 
 .logo-div {
