@@ -34,7 +34,7 @@ function SignupFormPage() {
       <div className="logo-div"><Link exact to="/"><img className="homepage-logo" src="/logos/burnbro-logo.png"/></Link></div>
       <div className="form-container">
         <form className="signup-form" onSubmit={handleSubmit}>
-          <div>Sign Up for Rewards!</div>
+          <div className="signup-form-header">Sign Up for Rewards!</div>
           <ul>
             {errors.map((error, idx) => <li className="errs" key={idx}>{error}</li>)}
           </ul>
@@ -97,7 +97,7 @@ function SignupFormPage() {
           </div>
         </form>
       </div>
-      <div className="return-home-button">
+      <div className="signup-return-home-button">
             <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
       </div>
     </div>

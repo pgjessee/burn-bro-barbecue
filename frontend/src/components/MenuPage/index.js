@@ -27,7 +27,7 @@ const ListMenuEntrees = () => {
                 })}
             </div>
             <div className="return-home-menu-button">
-                <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
+                <NavLink exact to="/"><button className="menu-navigation-button">Return Home</button></NavLink>
             </div>
         </div>
     )

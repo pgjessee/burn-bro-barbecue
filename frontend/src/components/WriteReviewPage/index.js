@@ -44,8 +44,8 @@ function WriteReview({ user }) {
                     <button className="write-review-submit" type="submit" onClick={e => <Redirect to="/reviews"/>}>Submit Review</button>
                 </div>
             </form>
-            <div className="return-home-button">
-                <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
+            <div>
+                <NavLink exact to="/"><button className="write-review-navigation-button">Return Home</button></NavLink>
             </div>
         </div>
     )

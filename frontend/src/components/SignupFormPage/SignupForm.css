@@ -38,7 +38,6 @@
     color: white;
     background-color: firebrick;
 
-    /* margin: 100px auto; */
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -49,11 +48,15 @@
     width: 555px;
 }
 
+.signup-form-header {
+    font-size: 36px;
+    font-weight: bolder;
+}
+
 .input-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    /* justify-content: space-evenly; */
 }
 
 .submit-button-form-div {
@@ -69,6 +72,14 @@
     width: 200px;
     height: 55px;
     box-shadow: 0 0 10px 1px;
+}
+
+.signup-form-submit-button:hover {
+    cursor: pointer;
+    background-color: #ffe8bd;
+    font-size: 24px;
+    color: firebrick;
+    transform: translateY(-2px);
 }
 
 .errs {

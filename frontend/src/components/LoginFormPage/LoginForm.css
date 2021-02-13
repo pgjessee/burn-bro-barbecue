@@ -45,6 +45,15 @@
     box-shadow: 0 0 10px 1px;
 }
 
+
+.login-form-submit-button:hover {
+    cursor: pointer;
+    background-color: #ffe8bd;
+    font-size: 24px;
+    color: firebrick;
+    transform: translateY(-2px);
+}
+
 .errs {
     color: white;
 }
