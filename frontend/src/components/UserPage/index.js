@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
+import './UserPage.css'
 
 function UserPage({ user }) {
     const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function UserPage({ user }) {
 
     return (
         <div className="user-navigation-container">
-            <h1>Hello, {user.first_name}</h1>
+            <h1 className="hello-user-header">Hello, {user.first_name}</h1>
             <div>
                 <NavLink to="/new-order"><button className="navigation-button">Place an Order</button></NavLink>
             </div>

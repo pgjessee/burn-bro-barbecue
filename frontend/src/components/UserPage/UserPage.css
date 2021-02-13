@@ -1,16 +1,28 @@
-.navigation-container {
-    height: 600px;
-    width: 500px;
-    margin: auto;
+.user-navigation-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
 }
 
+
+.hello-user-header {
+    margin: 0px;
+}
 
 .navigation-button {
     background-color: firebrick;
     color: white;
+    border-radius: 60px;
+    height: 75px;
+    width: 400px;
+    box-shadow: 0 0 10px 1px;
+    font-size: 36px;
+    margin-top: 50px;
+}
+
+.navigation-button:hover {
+    color: white;
+    background-color: #ea1d1d;
 }
 
 
