@@ -17,15 +17,19 @@ const ListReviews = () => {
     }, [])
 
     return (
-
+        <>
+        <div className="nav-bar">
+            <div className="write-review-nav-container">
+                <NavLink to="/write-review" className="write-review-nav">Write a Review</NavLink>
+            </div>
+            <div className="nav-header-container">
+                <NavLink to="/reviews" className="nav-header">Our Reviews</NavLink>
+            </div>
+            <div className="nav-image-container">
+                <NavLink to="/"><img className="nav-logo" src="/logos/burnbro-logo.png"/></NavLink>
+            </div>
+        </div>
         <div className="reviews-page-container">
-            <div className="home-button">
-                <NavLink to="/"><button className="top-review-navigation-button">Return Home</button></NavLink>
-            </div>
-            <div className="write-review-button">
-                <NavLink to="/write-review"><button className="top-review-navigation-button">Write a Review</button></NavLink>
-            </div>
-            <div className="reviews-header"><h1>- - Our Reviews - -</h1></div>
                 {allReviews.map(review => {
                     return <ReviewBox key={review.id} review={review}/>
                 })}
@@ -36,6 +40,7 @@ const ListReviews = () => {
                 <NavLink to="/"><button className="review-navigation-button">Return Home</button></NavLink>
             </div>
         </div>
+        </>
     )
 
 }

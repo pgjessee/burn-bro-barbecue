@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useHistory } from 'react-router-dom';
 
 import { fetch } from '../../store/csrf';
 import './WriteReview.css'
 
 function WriteReview({ user }) {
+    const history = useHistory();
     const [review, setReview] = useState('');
 
-    const handleSubmit = async (e) => {
-        // e.preventDefault()
+    const handleSubmit = async () => {
         await fetch('/api/reviews', {
             method: 'POST',
             body: JSON.stringify({
@@ -17,9 +17,7 @@ function WriteReview({ user }) {
             })
         })
 
-        return (
-            <Redirect  to="/reviews" />
-        );
+        return <Redirect to={"/reviews"}/>
 
     }
 
@@ -41,7 +39,7 @@ function WriteReview({ user }) {
                     />
                 </div>
                 <div className="write-review-button-container">
-                    <button className="write-review-submit" type="submit" onClick={e => <Redirect to="/reviews"/>}>Submit Review</button>
+                    <button className="write-review-submit" type="submit" >Submit Review</button>
                 </div>
             </form>
             <div>

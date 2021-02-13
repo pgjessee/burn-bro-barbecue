@@ -1,7 +1,49 @@
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: firebrick;
+    height: 100px;
+    width: 100%;
+    border-bottom: 4px solid black;
+    overflow: hidden;
+    position: fixed;
+}
+
+.nav-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.nav-image-container:hover {
+    box-shadow: 0 0 30px 10px;
+}
+
+
+.nav-header {
+    color: white;
+    font-size: 36px;
+    font-weight: bolder;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+
+.write-review-nav {
+    color: white;
+    font-size: 36px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
 .reviews-page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 100px;
 }
 
 .top-review-navigation-button {
