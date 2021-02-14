@@ -31,13 +31,17 @@ const ListPreviousOrders = ({ user }) => {
     }, [])
 
     return (
+        <>
+        <div className="nav-bar">
+            <div className="previous-order-nav-container">
+                <NavLink to="/new-order" className="place-order-nav">Place a New Order</NavLink>
+            </div>
+            <div className="nav-header">Your Previous Orders</div>
+            <div className="nav-image-container">
+                <NavLink to="/"><img className="nav-logo" src="/logos/burnbro-logo.png"/></NavLink>
+            </div>
+        </div>
         <div className="previous-orders-container">
-            <div className="home-button">
-                <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
-            </div>
-            <div className="previous-orders-header">
-                <h1>Your Previous Orders</h1>
-            </div>
             <div className="user-previous-orders">
                 {prevOrders.map(previousOrder => {
                     return <PreviousOrderTables key={previousOrder.id} previousOrder={previousOrder}/>
@@ -47,9 +51,10 @@ const ListPreviousOrders = ({ user }) => {
                 <NavLink to="/"><button className="navigation-button">Return Home</button></NavLink>
             </div>
         </div>
+        </>
     )
 
-}
+};
 
 
 export default ListPreviousOrders;

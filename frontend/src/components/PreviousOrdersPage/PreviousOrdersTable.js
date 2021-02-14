@@ -26,21 +26,21 @@ const PreviousOrderTables = ({ previousOrder }) => {
                 <tr><th className="previous-headers">Order ID</th></tr>
                 <tr><td className="previous-order-id">{previousOrder.id}</td></tr>
                 <tr>
-                    <th className="previous-headers">Entrée Name</th>
+                    <th id="entree-name" className="previous-headers">Entrée Name</th>
                     <th className="previous-headers">Price</th>
                     <th className="previous-headers">X</th>
                     <th className="previous-headers">Quantity</th>
                     <th className="previous-headers">Entrée Total</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="previous-order-table-body">
                 {ordersData.map(orderEntree => {
                     return <PreviousOrderTableBody key={orderEntree.id} orderEntree={orderEntree}/>
                 })}
             </tbody>
             <tfoot className="previous-footers">
                 <tr>
-                    <td></td>
+                    <td className="no-left-border-order-total-line"></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -48,9 +48,9 @@ const PreviousOrderTables = ({ previousOrder }) => {
                 </tr>
                 <tr>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td className="border-bottom-none"></td>
+                    <td className="border-bottom-none"></td>
+                    <td className="border-bottom-none"></td>
                     <td className="previous-order-dates">Date Visited: {visitDate}</td>
                 </tr>
             </tfoot>

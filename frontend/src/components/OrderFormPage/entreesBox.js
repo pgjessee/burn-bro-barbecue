@@ -24,8 +24,8 @@ const EntreeBox = ({ entree }) => {
 
     return (
 
-        <div className='entree-line'>
-            <div className='entrees__entree-box'>
+        <div className='entree-line-container'>
+            <div className='entrees-entree-box'>
                 <h2>{entree.entree_name}</h2>
                 <h2><strong>Price ${entree.entree_price}</strong></h2>
                 <h2><strong>X</strong></h2>

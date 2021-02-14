@@ -24,10 +24,10 @@ const ListEntrees = () => {
                 })}
             </div>
             <div className="new-order__checkout">
-                <NavLink to="/new-order/checkout"><button className="navigation-button">Proceed to Checkout</button></NavLink>
+                <NavLink to="/new-order/checkout"><button className="order-navigation-button">Proceed to Checkout</button></NavLink>
             </div>
             <div className="return-home-button">
-                <NavLink exact to="/"><button className="navigation-button">Return Home</button></NavLink>
+                <NavLink exact to="/"><button className="order-navigation-button">Return Home</button></NavLink>
             </div>
         </div>
     )

@@ -22,9 +22,7 @@ const ListReviews = () => {
             <div className="write-review-nav-container">
                 <NavLink to="/write-review" className="write-review-nav">Write a Review</NavLink>
             </div>
-            <div className="nav-header-container">
-                <NavLink to="/reviews" className="nav-header">Our Reviews</NavLink>
-            </div>
+            <div className="nav-header">Our Reviews</div>
             <div className="nav-image-container">
                 <NavLink to="/"><img className="nav-logo" src="/logos/burnbro-logo.png"/></NavLink>
             </div>

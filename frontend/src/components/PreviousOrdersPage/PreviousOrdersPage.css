@@ -1,33 +1,59 @@
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: firebrick;
+    height: 100px;
+    width: 100%;
+    border-bottom: 4px solid black;
+    overflow: hidden;
+    position: fixed;
+}
 
+.place-order-nav {
+    color: white;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+.nav-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.nav-image-container:hover {
+    box-shadow: 0 0 30px 10px;
+}
+
+.nav-header {
+    color: white;
+    font-size: 36px;
+    font-weight: bolder;
+    text-decoration: none;
+}
 
 .previous-orders-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 }
 
-.previous-orders-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    color: firebrick;
-    width: 400px;
-    border-style: dashed;
-}
 
-/* .user-previous-order-table {
-    margin: 30px;
-    padding: 30px;
-    border: 2px solid black;
-} */
+.user-previous-order-table {
+    margin-top: 140px;
+}
 
 .previous-orders-tables {
     font-size: 24px;
-    border: 2px solid black;
     border-collapse: collapse;
-    margin: 30px;
+}
+
+.previous-order-table-body {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 .previous-headers {
@@ -37,6 +63,10 @@
 .previous-order-id {
     text-align: center;
     border: 2px solid black;
+}
+
+#entree-name {
+    width: 220px;
 }
 
 .previous-order-entree {
@@ -67,6 +97,10 @@
     border-top: 2px solid black;
 }
 
+.no-left-border-order-total-line {
+    border-left: none;
+}
+
 .previous-order-totals {
     text-align: right;
     border-style: double;
@@ -74,13 +108,18 @@
 
 .previous-order-dates {
     text-align: right;
-    border-left: 2px solid black;
+
 }
 
-tfoot {
+/* tfoot {
     border: 1px solid black;
+} */
+
+
+.border-bottom-none {
+    border-bottom: none;
 }
 
 #previous-orders-footer-return {
-    padding-top: 50px;
+    margin-bottom: 20px;
 }
