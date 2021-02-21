@@ -8,7 +8,8 @@ function WriteReview({ user }) {
     const history = useHistory();
     const [review, setReview] = useState('');
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         await fetch('/api/reviews', {
             method: 'POST',
             body: JSON.stringify({
@@ -17,7 +18,7 @@ function WriteReview({ user }) {
             })
         })
 
-        return <Redirect to={"/reviews"}/>
+        history.push("/reviews")
 
     }
 

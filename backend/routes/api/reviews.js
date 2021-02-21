@@ -28,4 +28,14 @@ router.post('/', asyncHandler(async(req, res, next) => {
 
 }));
 
+router.delete('/:reviewId', asyncHandler(async (req, res, next) => {
+    const review_id = parseInt(req.params.reviewId, 10);
+
+    const review = await Review.findByPk(review_id);
+
+    review.destroy();
+
+}));
+
+
 module.exports = router;
