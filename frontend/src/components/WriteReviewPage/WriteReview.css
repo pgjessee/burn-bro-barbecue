@@ -10,11 +10,19 @@
     color: firebrick;
     border-style: dashed;
     width: 400px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .write-review-header {
     color: firebrick;
+}
+
+.review-errs-container {
+    width: 575px;
+}
+
+.review-errs {
+    font-size: 24px;
 }
 
 .write-review-text-area {

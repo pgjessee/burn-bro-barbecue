@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector} from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
 import { fetch } from '../../store/csrf';
@@ -9,6 +9,7 @@ import OrderLineItem from './OrderLineItem'
 import './CheckoutPage.css'
 
 const CheckoutItems = ({ user }) => {
+    const history = useHistory();
     const [lineItems, setLineItems] = useState([]);
     const [ordersTotal, setOrdersTotal] = useState((0));
 
@@ -34,7 +35,8 @@ const CheckoutItems = ({ user }) => {
 
     }, [])
 
-    const submitOrder = async () => {
+    const submitOrder = async (e) => {
+        e.preventDefault();
 
         let orderTotal = 0;
         let entreeKey, lineItemQuantity
@@ -116,7 +118,8 @@ const CheckoutItems = ({ user }) => {
         }
 
         localStorage.clear();
-         return <Redirect exact to="/" />
+        history.push("/")
+        //  return <Redirect exact to="/" />
     };
 
     return (
@@ -149,7 +152,8 @@ const CheckoutItems = ({ user }) => {
                     </tfoot>
                 </table>
             <div className="submit-new-order">
-                <NavLink to="/"><button id="new-order-submit" onClick={submitOrder}>Submit Order</button></NavLink>
+                {/* <NavLink to="/"><button id="new-order-submit" onClick={submitOrder}>Submit Order</button></NavLink> */}
+                <button id="new-order-submit" onClick={submitOrder}>Submit Order</button>
             </div>
             </div>
             <div className="return-home-button">

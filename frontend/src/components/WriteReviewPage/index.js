@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import { fetch } from '../../store/csrf';
 import './WriteReview.css'
@@ -7,28 +7,43 @@ import './WriteReview.css'
 function WriteReview({ user }) {
     const history = useHistory();
     const [review, setReview] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await fetch('/api/reviews', {
-            method: 'POST',
-            body: JSON.stringify({
-                review,
-                user_id: user.id
+        setErrors([])
+        try {
+            const res = await fetch('/api/reviews', {
+                method: 'POST',
+                body: JSON.stringify({
+                    review,
+                    user_id: user.id
+                })
             })
-        })
 
-        history.push("/reviews")
+            if (!res.ok) throw res;
+            history.push("/reviews")
+
+        } catch (errs) {
+            setErrors(errs.data.errors)
+        }
 
     }
 
 
     return (
         <div className="write-review-container">
+            <div className="write-review-header-container">
+                <h1 className="write-review-header">Write a Review</h1>
+            </div>
+            <div className="review-errs-container">
+                <ul>
+                    {errors.map((error, idx) =>
+                        <li className="review-errs" key={idx}>{error}</li>
+                    )}
+                </ul>
+            </div>
             <form className="write-review-form" onSubmit={handleSubmit}>
-                <div className="write-review-header-container">
-                    <h1 className="write-review-header">Write a Review</h1>
-                </div>
                 <div className="write-review-text-area">
                     <textarea
                     rows="22"

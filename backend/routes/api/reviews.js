@@ -1,10 +1,22 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check } = require('express-validator');
 
 const { Review, User } = require('../../db/models')
-
+const { handleValidationErrors } = require('../../utils/validation')
 const router = express.Router();
 
+
+const validateReviewSubmit = [
+    check('review')
+        .exists({ checkFalsy: true })
+        .notEmpty()
+        .withMessage("Please leave a review before submitting."),
+    check('review')
+        .isLength({ max: 500})
+        .withMessage("A review cannot be more than 500 characters in length."),
+    handleValidationErrors
+]
 
 router.get('/', asyncHandler(async(req, res) => {
 
@@ -16,7 +28,7 @@ router.get('/', asyncHandler(async(req, res) => {
     return reviewsJson;
 }));
 
-router.post('/', asyncHandler(async(req, res, next) => {
+router.post('/', validateReviewSubmit, asyncHandler(async(req, res, next) => {
     const { review, user_id } = req.body;
 
     const newReview = await Review.create({
