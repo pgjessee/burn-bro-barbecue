@@ -4,8 +4,8 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Reviews', [
       {
-        review: "This app sucks lol",
-        user_id: 3
+        review: "Welcome to Burn Bro Barbecue!",
+        user_id: 2
       },
     ], {});
   },
