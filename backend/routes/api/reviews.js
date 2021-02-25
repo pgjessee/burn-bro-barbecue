@@ -47,6 +47,8 @@ router.delete('/:reviewId', asyncHandler(async (req, res, next) => {
 
     review.destroy();
 
+    return res.json({ review });
+
 }));
 
 

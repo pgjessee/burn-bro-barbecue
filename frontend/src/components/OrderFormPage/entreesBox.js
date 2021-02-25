@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const EntreeBox = ({ entree }) => {
-    const [amount, setAmount ] = useState(0)
+    const [amount, setAmount] = useState(0)
     // const history = useHistory();
 
     const addToCartHandler = () => {
