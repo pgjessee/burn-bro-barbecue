@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { fetch } from '../../store/csrf';
 import './WriteReview.css'
 
 function WriteReview({ user }) {
+    const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const [review, setReview] = useState('');
     const [errors, setErrors] = useState([]);
+
+    if (!sessionUser) history.push("/")
 
     const handleSubmit = async (e) => {
         e.preventDefault()

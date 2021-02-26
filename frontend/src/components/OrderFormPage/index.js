@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import './OrderForm.css'
 
 import EntreeBox from './entreesBox';
 
 const ListEntrees = () => {
+    const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory();
     const [allEntrees, setAllEntrees] = useState([])
+
+    if (!sessionUser) history.push("/")
 
     useEffect(() => {
         (async () => {

@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import PreviousOrderTables from './PreviousOrdersTable'
 
 import './PreviousOrdersPage.css'
 
 const ListPreviousOrders = ({ user }) => {
+    const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory();
+    if (!sessionUser) history.push("/")
     const [prevOrders, setAllPreviousOrders] = useState([]);
+
 
     useEffect(() => {
         (async () => {
