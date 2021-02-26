@@ -19,6 +19,8 @@ const ReviewBox = ({ review, onDelete }) => {
         return
     };
 
+
+
     if (sessionUser.id === review.user_id) {
         return (
             <div className="review-container">
@@ -31,6 +33,7 @@ const ReviewBox = ({ review, onDelete }) => {
         )
     }
 
+    
     return (
         <div className="review-container">
             <div className="user-review">{review.review}</div>

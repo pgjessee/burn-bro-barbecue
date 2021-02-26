@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import ReviewBox from './reviewsBox';
 
 import './ReviewsPage.css'
 
 const ListReviews = () => {
-    const [allReviews, setAllReviews] = useState([])
     const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory();
+    const [allReviews, setAllReviews] = useState([])
+
+    if (!sessionUser) history.push("/")
 
     useEffect(() => {
         (async () => {

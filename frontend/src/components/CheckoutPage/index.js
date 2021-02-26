@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector} from 'react-redux';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import * as sessionActions from '../../store/session';
+
 import { fetch } from '../../store/csrf';
-import OrderLineItem from './OrderLineItem'
+
 
 import './CheckoutPage.css'
 
 const CheckoutItems = ({ user }) => {
+    const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const [lineItems, setLineItems] = useState([]);
     const [ordersTotal, setOrdersTotal] = useState((0));
+
+    if (!sessionUser) history.push("/")
 
     useEffect(() => {
         (async () => {
@@ -23,14 +26,15 @@ const CheckoutItems = ({ user }) => {
                 let res = await fetch(`/api/entrees/${entreeKey}`);
                 let { entree } = res.data;
                 let lineItemQuantity = parseInt(localStorage.getItem(entreeKey), 10);
-                // console.log(lineItemQuantity)
+
                 entree["lineItemQuantity"] = lineItemQuantity
                 orderTotal += (entree.entree_price * lineItemQuantity)
-                // console.log(entree)
+
                 orderLineItems.push(entree)
             }
             setOrdersTotal(orderTotal)
             setLineItems(orderLineItems)
+
         })()
 
     }, [])
@@ -40,7 +44,6 @@ const CheckoutItems = ({ user }) => {
 
         let orderTotal = 0;
         let entreeKey, lineItemQuantity
-
         for (let i = 0; i < localStorage.length; i++) {
             entreeKey = localStorage.key(i);
             let res = await fetch(`/api/entrees/${entreeKey}`);
@@ -122,6 +125,24 @@ const CheckoutItems = ({ user }) => {
         //  return <Redirect exact to="/" />
     };
 
+    const handleDeleteLineItem = (lineItem) => {
+
+        let newLineItems = lineItems.slice();
+        let existingItems = []
+        let item;
+        for (let i = 0; i < newLineItems.length; i++) {
+            item = newLineItems[i];
+            if (item.id !== lineItem.id) {
+                existingItems.push(item)
+            }
+        }
+
+        setLineItems(existingItems)
+        setOrdersTotal(ordersTotal - (parseInt(lineItem.entree_price, 10)  * (parseInt(lineItem.lineItemQuantity))))
+
+        localStorage.removeItem(lineItem.id)
+    }
+
     return (
         <div className="checkout-page-container">
             <div className='checkout-container'>
@@ -137,8 +158,17 @@ const CheckoutItems = ({ user }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {lineItems.map(lineItem => {
-                            return <OrderLineItem key={lineItem.id} lineItem={lineItem}/>
+                        {lineItems.map((lineItem) => {
+                            return (
+                                <tr key={lineItem.id}>
+                                    <td className="checkout-entree-line-item">{lineItem.entree_name}</td>
+                                    <td className="checkout-entree-line-item-price">${lineItem.entree_price}</td>
+                                    <td className="checkout-entree-line-item-multiplier">X</td>
+                                    <td className="checkout-entree-line-item-quantity">{lineItem.lineItemQuantity}</td>
+                                    <td className="checkout-entree-line-item-subtotal">${lineItem.lineItemQuantity * lineItem.entree_price}</td>
+                                    <td className="checkout-line-item-delete-container"><button className="delete-checkout-line-item" onClick={() => handleDeleteLineItem(lineItem)}>Delete</button></td>
+                                </tr>
+                            )
                         })}
                     </tbody>
                     <tfoot>
