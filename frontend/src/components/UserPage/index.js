@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session';
 
 import './UserPage.css'
 
 function UserPage({ user }) {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
+    const [reviews, setReviews] = useState([]);
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            let res = await fetch(`/api/users/${sessionUser.id}`);
+            res = await res.json();
+            const { userData } = res;
+            setReviews(userData.Reviews)
+            setOrders(userData.Orders)
+ 
+        })()
+    }, [])
 
     const logout = () => {
         dispatch(sessionActions.logout());
@@ -15,6 +30,11 @@ function UserPage({ user }) {
     return (
         <div className="user-navigation-container">
             <h1 className="hello-user-header">Hello, {user.first_name}</h1>
+            <div className="user-page-errors-container">
+                <ul>
+
+                </ul>
+            </div>
             <div>
                 <NavLink to="/new-order"><button className="navigation-button">Place an Order</button></NavLink>
             </div>

@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { handleValidationErrors } = require('../../utils/validation');
-const { User } = require('../../db/models')
+const { User, Review, Order } = require('../../db/models')
 
 const router = express.Router();
 
@@ -51,6 +51,8 @@ const validateSignup = [
     handleValidationErrors
 ];
 
+
+
 router.post('', validateSignup, asyncHandler(async (req, res) => {
 
     const { first_name, email, zip, password } = req.body;
@@ -64,6 +66,15 @@ router.post('', validateSignup, asyncHandler(async (req, res) => {
 }));
 
 
+router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    const userId = parseInt(req.params.id, 10);
+
+    const userData = await User.findByPk(userId, {
+        include: [Review, Order]
+    });
+
+    return res.json({ userData })
+}));
 
 module.exports = router;
 
