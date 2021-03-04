@@ -11,20 +11,29 @@ function UserPage({ user }) {
     const sessionUser = useSelector(state => state.session.user);
     const [reviews, setReviews] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         (async () => {
             let res = await fetch(`/api/users/${sessionUser.id}`);
             res = await res.json();
             const { userData } = res;
-            setReviews(userData.Reviews)
-            setOrders(userData.Orders)
- 
+            setReviews(userData.Reviews);
+            setOrders(userData.Orders);
+            setErrors([]);
         })()
     }, [])
 
     const logout = () => {
         dispatch(sessionActions.logout());
+    };
+
+    const handleUserReview = () => {
+        if (orders.length === 0) {
+            setErrors(["Place an order to submit your first reveiw and tell us how we are doing!"])
+        } else if (orders.length === reviews.length) {
+            setErrors(["Only one review per order is allowed to get the best feedback from our valued customers"])
+        }
     };
 
     return (
