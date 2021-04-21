@@ -9,6 +9,7 @@ function WriteReview({ user }) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const [review, setReview] = useState('');
+    const [charLimit, setCharLimit] = useState(500);
     const [errors, setErrors] = useState([]);
 
     if (!sessionUser) history.push("/")
@@ -34,6 +35,12 @@ function WriteReview({ user }) {
 
     }
 
+    const handleCharLimit = (e) => {
+        let charCount = e.target.value;
+        const maxChars = 500
+        setCharLimit(maxChars - charCount.length)
+    }
+
 
     return (
         <div className="write-review-container">
@@ -55,8 +62,11 @@ function WriteReview({ user }) {
                     name="review"
                     placeholder="Write your review..."
                     value={review}
-                    onChange={(e) => setReview(e.target.value)}
+                    onChange={(e) => (setReview(e.target.value), handleCharLimit(e))}
                     />
+                </div>
+                <div className="review-char-count">
+                    Character Count: {charLimit}
                 </div>
                 <div className="write-review-button-container">
                     <button className="write-review-submit" type="submit" >Submit Review</button>

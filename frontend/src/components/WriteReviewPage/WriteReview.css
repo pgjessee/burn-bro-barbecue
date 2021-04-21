@@ -46,6 +46,11 @@ textarea {
     align-items: center;
 }
 
+.review-char-count {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
 
 .write-review-submit {
     background-color: firebrick;
